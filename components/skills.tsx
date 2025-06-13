@@ -11,11 +11,11 @@ const skillCategories = [
   },
   {
     title: "Frameworks",
-    skills: ["Laravel", "Django", "Flask", "Next.js", "Express.js"],
+    skills: ["Laravel", "Django", "Flask", "Next.js", "Express.js", "Axum"],
   },
   {
     title: "Web3 Tools",
-    skills: ["Solidity", "ethers.py", "Solana CLI", "Metamask integration", "IPFS"],
+    skills: ["Solana/web3.js", "ethers.py", "Solana CLI", "Metamask integration", "IPFS", "solana-sdk", "solana-client", "spl"],
   },
   {
     title: "AI & ML",
