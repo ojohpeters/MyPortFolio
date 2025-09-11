@@ -22,7 +22,7 @@ const projects = [
     description: "Real-time emergency response platform using crowdsourcing.",
     image: "/projects/emergency.jpg", // Save image at this path
     tags: ["NextJS", "PostgreSQL (Neon)", "Render", "Laravel"],
-    demoUrl: "https://-crowdsourced-phi.vercel.app",
+    demoUrl: "https://crowdsourced-phi.vercel.app",
     githubUrl: "#", // Replace with actual URL or keep as "#" for "Available on request"
   },
   {
