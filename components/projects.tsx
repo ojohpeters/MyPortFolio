@@ -17,14 +17,15 @@ const projects = [
     demoUrl: "https://ecotp.org/",
     githubUrl: "#", 
   },
-  {
-    title: "Crowdsource Emergency Platform",
-    description: "Real-time emergency response platform using crowdsourcing.",
-    image: "/projects/emergency.jpg", 
-    tags: ["NextJS", "PostgreSQL (Neon)", "Render", "Laravel"],
-    demoUrl: "https://crowdsourced-phi.vercel.app",
-    githubUrl: "#", 
-  },
+   {
+  title: "NDNB - Nigerian Digital National Biographies",
+  description: "A Laravel + React-based platform for creating, curating, and publishing verified biographies of notable Nigerians, with contributor, editor, and admin workflows.",
+  image: "/projects/ndnb.png", 
+  tags: ["Laravel", "React", "TailwindCSS", "MySQL", "Spatie Roles & Permissions"],
+  demoUrl: "https://ndnb.ng/", 
+  githubUrl: "#", 
+}
+, 
   {
     title: "AI-Powered WordPress Bot",
     description: "Flask app for generating AI content and posting to WordPress via REST API.",
@@ -34,18 +35,17 @@ const projects = [
     githubUrl: "#", 
   },
  {
-  title: "NDNB - Nigerian Digital National Biographies",
-  description: "A Laravel + React-based platform for creating, curating, and publishing verified biographies of notable Nigerians, with contributor, editor, and admin workflows.",
-  image: "/projects/ndnb.png", 
-  tags: ["Laravel", "React", "TailwindCSS", "MySQL", "Spatie Roles & Permissions"],
-  demoUrl: "https://ndnb.ng/", 
-  githubUrl: "#", 
-}
-,
+    title: "Crowdsource Emergency Platform",
+    description: "Real-time emergency response platform using crowdsourcing.",
+    image: "/projects/emergency.jpg", 
+    tags: ["NextJS", "PostgreSQL (Neon)", "Render", "Laravel"],
+    demoUrl: "https://crowdsourced-phi.vercel.app",
+    githubUrl: "#", 
+  },
   {
     title: "Job Matcher MVP",
     description: "AI-powered job matching platform (similar to Upwork/Jobberman).",
-    image: "placeholder-logo.png", 
+    image: "/projects/jobs.png", 
     tags: ["Django REST Framework", "Next.js", "PostgreSQL", "Tailwind"],
     demoUrl: "#", // Coming soon
     githubUrl: "#", 

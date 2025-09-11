@@ -37,8 +37,8 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="#hero" className="text-xl font-bold tracking-tight">
-          Peters Ojoh
+        <Link href="#hero" className="text-xl font-bold tracking-tight text-primary">
+          OJOCHEGBE
         </Link>
 
         {/* Desktop Navigation */}

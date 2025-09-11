@@ -1,12 +1,15 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Download, Github, Linkedin, Twitter } from "lucide-react"
-import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Download, Github, Linkedin, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-[90vh] flex items-center py-20">
+    <section
+      id="hero"
+      className="relative min-h-[90vh] flex items-center py-20"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,12 +18,19 @@ export default function Hero() {
           className="max-w-3xl mx-auto text-center"
         >
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-            Hi, I'm <span className="text-primary">Peters Ojoh</span>
+            Hi, I'm <span className="text-primary">Ojoh Peters Ojochegbe</span>
           </h1>
           <h2 className="text-xl md:text-2xl font-medium text-muted-foreground mb-8">
-            Full-Stack Developer | Web2 & Web3 Builder | AI Integrator | Electronics Enthusiast
+            Full-Stack Developer | Web2 & Web3 Builder | AI & Automation
+            Engineer | DFIR & Cybersecurity Researcher | Electronics &
+            Reverse-Engineering Enthusiast
           </h2>
-          <p className="text-lg md:text-xl mb-10">Turning ideas into products as fast as possible.</p>
+
+          <p className="text-lg md:text-xl mb-10">
+            Turning ideas into secure, scalable products — fast. Blending code,
+            AI, and DFIR to build, break, and innovate.
+          </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button asChild size="lg" className="gap-2">
               <a href="#projects">
@@ -35,12 +45,22 @@ export default function Hero() {
           </div>
           <div className="flex justify-center gap-6">
             <Button variant="ghost" size="icon" asChild>
-              <a href="https://github.com/ojohpeters" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a
+                href="https://github.com/ojohpeters"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
                 <Github size={20} />
               </a>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <a href="https://x.com/_smok3scr33n" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <a
+                href="https://x.com/_smok3scr33n"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+              >
                 <Twitter size={20} />
               </a>
             </Button>
@@ -63,5 +83,5 @@ export default function Hero() {
         </a>
       </div>
     </section>
-  )
+  );
 }

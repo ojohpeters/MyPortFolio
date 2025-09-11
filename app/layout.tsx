@@ -10,7 +10,7 @@ import { Toaster } from "@/components/toaster"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Peters Ojoh | Full-Stack Developer",
+  title: "Ojoh Peters | Full-Stack Developer",
   description: "Portfolio of Peters Ojoh - Full-Stack Developer specializing in Web2, Web3, and AI integration",
     generator: 'peters'
 }
