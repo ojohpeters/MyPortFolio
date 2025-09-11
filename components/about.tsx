@@ -18,7 +18,7 @@ export default function About() {
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="w-full md:w-1/3 flex justify-center">
               <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-primary">
-                <Image src="/placeholder.svg?height=192&width=192" alt="Peters Ojoh" fill className="object-cover" />
+                <Image src="/image.png?height=192&width=192" alt="Peters Ojoh" fill className="object-cover" />
               </div>
             </div>
             <div className="w-full md:w-2/3">
