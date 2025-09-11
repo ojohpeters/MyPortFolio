@@ -29,7 +29,7 @@ export default function About() {
             <div className="w-full md:w-2/3">
               <p className="text-lg mb-6">
                 <p className="text-lg mb-6">
-                  I’m a self-taught and hands-on Full-Stack Developer,
+                  I am a self-taught and hands-on Full-Stack Developer,
                   Cybersecurity Enthusiast with a focus on Digital Forensics and
                   Incident Response, and an Electronics Hobbyist exploring
                   embedded systems and RF technologies. I have experience
@@ -37,13 +37,13 @@ export default function About() {
                   blockchain-based solutions. My technical stack spans Laravel,
                   Django, Flask, Node.js, and Solidity, with growing expertise
                   in Rust for Web2 and Web3 development. Beyond software, I have
-                  a background in networking and electronics repair, and I’m
-                  pursuing Electrical Engineering at AFIT to deepen my expertise
+                  a background in networking and electronics repair, and I am
+                  pursuing Electrical Engineering at Air Force Institute Of Technology, Kaduna Nigeria(AFIT),  to deepen my expertise
                   in embedded systems, IoT, and digital security. I’ve
                   contributed to both Web2 platforms and Web3 projects, trained
                   AI models, and implemented machine learning solutions. I enjoy
                   working with startups to quickly ship secure and scalable
-                  MVPs, and I’m passionate about bridging the gap between
+                  MVPs, and I am passionate about bridging the gap between
                   hardware and software in real-world problem-solving.
                 </p>
               </p>

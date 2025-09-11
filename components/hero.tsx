@@ -18,9 +18,9 @@ export default function Hero() {
             Hi, I'm <span className="text-primary">Peters Ojoh</span>
           </h1>
           <h2 className="text-xl md:text-2xl font-medium text-muted-foreground mb-8">
-            Full-Stack Developer | Web2 & Web3 Builder | AI Integrator
+            Full-Stack Developer | Web2 & Web3 Builder | AI Integrator | Electronics Enthusiast
           </h2>
-          <p className="text-lg md:text-xl mb-10">Turning ideas into products — fast.</p>
+          <p className="text-lg md:text-xl mb-10">Turning ideas into products as fast as possible.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button asChild size="lg" className="gap-2">
               <a href="#projects">
