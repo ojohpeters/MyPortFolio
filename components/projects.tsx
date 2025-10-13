@@ -1,57 +1,105 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github } from "lucide-react"
-import Image from "next/image"
-
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, Github } from "lucide-react";
+import Image from "next/image";
 
 const projects = [
   {
+    title: "Farmers MarketPlace- A final year student project",
+    description: "Fully built with NEXTJS",
+    image: "/projects/farmers.png",
+    tags: [
+      "NextJS",
+      "React",
+      "TailwindCSS",
+      "MongoDB",
+    ],
+    demoUrl: "https://farmers-marketplace-navy.vercel.app/",
+    githubUrl: "#",
+  },
+  {
+    title: "Public Records NG",
+    description: "A Central Hub for Nigeria's Public Records and Data",
+    image: "/projects/publicrecords.png",
+    tags: [
+      "Laravel",
+      "React",
+      "TailwindCSS",
+      "MySQL",
+      "Spatie Roles & Permissions",
+    ],
+    demoUrl: "https://publicrecords.ng/",
+    githubUrl: "#",
+  },
+  {
     title: "EcoCoin",
-    description: "Smart contract-based token with airdrop and gamification system.",
-    image: "/projects/ecocoin.jpg", 
+    description:
+      "Smart contract-based token with airdrop and gamification system.",
+    image: "/projects/ecocoin.jpg",
     tags: ["Rust", "JavaScript", "Vercel", "solanacli"],
     demoUrl: "https://ecotp.org/",
-    githubUrl: "#", 
+    githubUrl: "#",
   },
-   {
-  title: "NDNB - Nigerian Digital National Biographies",
-  description: "A Laravel + React-based platform for creating, curating, and publishing verified biographies of notable Nigerians, with contributor, editor, and admin workflows.",
-  image: "/projects/ndnb.png", 
-  tags: ["Laravel", "React", "TailwindCSS", "MySQL", "Spatie Roles & Permissions"],
-  demoUrl: "https://ndnb.ng/", 
-  githubUrl: "#", 
-}
-, 
+  {
+    title: "NDNB - Nigerian Digital National Biographies",
+    description:
+      "A Laravel + React-based platform for creating, curating, and publishing verified biographies of notable Nigerians, with contributor, editor, and admin workflows.",
+    image: "/projects/ndnb.png",
+    tags: [
+      "Laravel",
+      "React",
+      "TailwindCSS",
+      "MySQL",
+      "Spatie Roles & Permissions",
+    ],
+    demoUrl: "https://ndnb.ng/",
+    githubUrl: "#",
+  },
   {
     title: "AI-Powered WordPress Bot",
-    description: "Flask app for generating AI content and posting to WordPress via REST API.",
-    image: "/projects/wordpress-bot.jpg", 
-    tags: ["Django", "OpenAI API", "TailwindCSS", "NextJS", "WordPress REST API"],
+    description:
+      "Flask app for generating AI content and posting to WordPress via REST API.",
+    image: "/projects/wordpress-bot.jpg",
+    tags: [
+      "Django",
+      "OpenAI API",
+      "TailwindCSS",
+      "NextJS",
+      "WordPress REST API",
+    ],
     demoUrl: "https://blogscribe.vercel.app/",
-    githubUrl: "#", 
+    githubUrl: "#",
   },
- {
+  {
     title: "Crowdsource Emergency Platform",
     description: "Real-time emergency response platform using crowdsourcing.",
-    image: "/projects/emergency.jpg", 
+    image: "/projects/emergency.jpg",
     tags: ["NextJS", "PostgreSQL (Neon)", "Render", "Laravel"],
     demoUrl: "https://crowdsourced-phi.vercel.app",
-    githubUrl: "#", 
+    githubUrl: "#",
   },
   {
     title: "Job Matcher MVP",
-    description: "AI-powered job matching platform (similar to Upwork/Jobberman).",
-    image: "/projects/jobs.png", 
+    description:
+      "AI-powered job matching platform (similar to Upwork/Jobberman).",
+    image: "/projects/jobs.png",
     tags: ["Django REST Framework", "Next.js", "PostgreSQL", "Tailwind"],
     demoUrl: "#", // Coming soon
-    githubUrl: "#", 
+    githubUrl: "#",
     inProgress: true,
   },
-]
+];
 
 export default function Projects() {
   return (
@@ -77,14 +125,19 @@ export default function Projects() {
                 <Card className="h-full flex flex-col overflow-hidden">
                   <div className="relative h-48 w-full">
                     <Image
-                      src={project.image || "/placeholder.svg?height=300&width=600"}
+                      src={
+                        project.image || "/placeholder.svg?height=300&width=600"
+                      }
                       alt={project.title}
                       fill
                       className="object-cover"
                     />
                     {project.inProgress && (
                       <div className="absolute top-2 right-2">
-                        <Badge variant="secondary" className="bg-yellow-500/20 text-yellow-700 dark:text-yellow-300">
+                        <Badge
+                          variant="secondary"
+                          className="bg-yellow-500/20 text-yellow-700 dark:text-yellow-300"
+                        >
                           In Progress
                         </Badge>
                       </div>
@@ -104,24 +157,42 @@ export default function Projects() {
                     </div>
                   </CardContent>
                   <CardFooter className="flex gap-2">
-                    <Button asChild variant="default" size="sm" className="gap-1" disabled={project.demoUrl === "#"}>
+                    <Button
+                      asChild
+                      variant="default"
+                      size="sm"
+                      className="gap-1"
+                      disabled={project.demoUrl === "#"}
+                    >
                       <a
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={project.demoUrl === "#" ? "cursor-not-allowed" : ""}
+                        className={
+                          project.demoUrl === "#" ? "cursor-not-allowed" : ""
+                        }
                       >
-                        {project.demoUrl === "#" ? "Coming Soon" : "Live Demo"} <ExternalLink size={14} />
+                        {project.demoUrl === "#" ? "Coming Soon" : "Live Demo"}{" "}
+                        <ExternalLink size={14} />
                       </a>
                     </Button>
-                    <Button asChild variant="outline" size="sm" className="gap-1" disabled={project.githubUrl === "#"}>
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="sm"
+                      className="gap-1"
+                      disabled={project.githubUrl === "#"}
+                    >
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={project.githubUrl === "#" ? "cursor-not-allowed" : ""}
+                        className={
+                          project.githubUrl === "#" ? "cursor-not-allowed" : ""
+                        }
                       >
-                        {project.githubUrl === "#" ? "On Request" : "Code"} <Github size={14} />
+                        {project.githubUrl === "#" ? "On Request" : "Code"}{" "}
+                        <Github size={14} />
                       </a>
                     </Button>
                   </CardFooter>
@@ -132,5 +203,5 @@ export default function Projects() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

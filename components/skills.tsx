@@ -7,11 +7,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 const skillCategories = [
   {
     title: "Languages",
-    skills: ["Python", "PHP", "JavaScript", "Rust (learning)", "Solidity"],
+    skills: ["Python", "PHP", "JavaScript", "Rust (learning)"],
   },
   {
     title: "Frameworks",
-    skills: ["Laravel", "Django", "Flask", "Next.js", "Express.js", "Axum"],
+    skills: ["Laravel", "Django", "Flask", "Next.js", "Axum"],
   },
   {
     title: "Web3 Tools",
@@ -19,11 +19,11 @@ const skillCategories = [
   },
   {
     title: "AI & ML",
-    skills: ["Model Training", "Machine Learning", "Data Analysis", "AI Integration", "Python ML Libraries"],
+    skills: ["Model Training", "Machine Learning", "Data Analysis", "AI Integration", "Python ML Libraries", "IBM SPSS"],
   },
   {
     title: "DevOps",
-    skills: ["Docker", "Git", "Vercel", "Render"],
+    skills: ["Docker", "Git", "Vercel", "Render", "Fly"],
   },
 ]
 
