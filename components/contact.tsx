@@ -26,8 +26,8 @@ const channels = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "ojoh-peter",
-    href: "https://www.linkedin.com/in/ojoh-peter-549a371b8",
+    value: "ojoh-peter-ojochegbe",
+    href: "https://www.linkedin.com/in/ojoh-peter-ojochegbe-79b0603b6",
   },
   {
     icon: Twitter,
