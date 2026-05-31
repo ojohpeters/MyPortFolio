@@ -15,11 +15,63 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-display",
 })
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "https://ojohpeters.vercel.app")
+
+const description =
+  "Ojoh Peters Ojochegbe — Full-Stack Developer building secure, scalable products across Web2, Web3, AI & automation. Laravel, Next.js, Django, Vue and Rust, with a focus on DFIR / cybersecurity. 25+ projects shipped, available for freelance & collaborations."
+
 export const metadata: Metadata = {
-  title: "Ojoh Peters | Full-Stack Developer",
-  description:
-    "Portfolio of Ojoh Peters Ojochegbe — Full-Stack Developer specializing in Web2, Web3, AI integration, and DFIR / cybersecurity.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Ojoh Peters | Full-Stack Developer (Web2, Web3, AI & DFIR)",
+    template: "%s | Ojoh Peters",
+  },
+  description,
   generator: "peters",
+  applicationName: "Ojoh Peters — Portfolio",
+  authors: [{ name: "Ojoh Peters Ojochegbe" }],
+  creator: "Ojoh Peters Ojochegbe",
+  keywords: [
+    "Ojoh Peters",
+    "Ojochegbe",
+    "Full-Stack Developer",
+    "Web3 Developer",
+    "Laravel Developer",
+    "Next.js Developer",
+    "AI Engineer",
+    "DFIR",
+    "Cybersecurity",
+    "Solana",
+    "Rust",
+    "Portfolio",
+    "Nigeria",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "Ojoh Peters — Portfolio",
+    title: "Ojoh Peters | Full-Stack Developer (Web2, Web3, AI & DFIR)",
+    description,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ojoh Peters | Full-Stack Developer",
+    description,
+    creator: "@_smok3scr33n",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
 }
 
 export default function RootLayout({
