@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/section-heading";
@@ -27,6 +28,7 @@ type Category =
 interface Project {
   title: string;
   description: string;
+  image: string;
   tags: string[];
   category: Category;
   featured?: boolean;
@@ -38,6 +40,7 @@ const projects: Project[] = [
     title: "CoachPro",
     description:
       "Coaching practice-management platform for executive & life coaches — intake, engagements, sessions, goals, multi-tenant firms with a branded client portal.",
+    image: "/projects/coachpro.jpg",
     tags: ["Laravel 13", "Vue 3", "Inertia.js", "Tailwind 4", "Fortify"],
     category: "SaaS & Enterprise",
     featured: true,
@@ -46,6 +49,7 @@ const projects: Project[] = [
     title: "Sales Pro",
     description:
       "Mobile-first sales pipeline & activity-management SaaS. 8-level reporting hierarchies, Kanban deal board, mandatory next-action enforcement and CentricPro handoff.",
+    image: "/projects/salespro.jpg",
     tags: ["Laravel 13", "Vue 3", "TypeScript", "Inertia.js", "Multi-tenant"],
     category: "SaaS & Enterprise",
     featured: true,
@@ -54,6 +58,7 @@ const projects: Project[] = [
     title: "Efiko HRIS",
     description:
       "Modular HR information system spanning performance appraisal, L&D planning, change management, grievance, mentoring, exit management and employee self-service.",
+    image: "/projects/efikohr.jpg",
     tags: ["PHP", "CodeIgniter 4", "MySQL", "HRIS", "Multi-module"],
     category: "SaaS & Enterprise",
     featured: true,
@@ -62,6 +67,7 @@ const projects: Project[] = [
     title: "The Green Seal",
     description:
       "Executive activity-tracking system for the Institute for Historical Studies (IHS-BiRD&L) — multi-role editorial workflow from contributor submission to publication.",
+    image: "/projects/greenseal.jpg",
     tags: ["Laravel", "MySQL", "Editorial Workflow", "RBAC"],
     category: "Web Apps",
   },
@@ -69,6 +75,7 @@ const projects: Project[] = [
     title: "Public Records NG",
     description:
       "A central hub for Nigeria's public records and data, with role-based contributor, editor and admin workflows.",
+    image: "/projects/publicrecords.png",
     tags: ["Laravel", "React", "TailwindCSS", "MySQL", "Spatie"],
     category: "Web Apps",
   },
@@ -76,6 +83,7 @@ const projects: Project[] = [
     title: "NDNB — Digital National Biographies",
     description:
       "Platform for creating, curating and publishing verified biographies of notable Nigerians, with contributor, editor and admin roles.",
+    image: "/projects/ndnb.png",
     tags: ["Laravel", "React", "TailwindCSS", "MySQL", "Spatie"],
     category: "Web Apps",
   },
@@ -83,6 +91,7 @@ const projects: Project[] = [
     title: "Farmers Marketplace",
     description:
       "Final-year full-stack e-commerce platform connecting farmers with buyers — product management, cart, checkout, order tracking and analytics.",
+    image: "/projects/farmers.png",
     tags: ["Next.js", "React", "TailwindCSS", "MongoDB"],
     category: "E-Commerce",
     featured: true,
@@ -91,6 +100,7 @@ const projects: Project[] = [
     title: "AgriCom",
     description:
       "Agriculture e-commerce platform connecting producers, suppliers and consumers directly — fertilizers, machinery and agri-products, plus news & government schemes.",
+    image: "/projects/agricom.jpg",
     tags: ["MongoDB", "Express", "React", "Node.js"],
     category: "E-Commerce",
   },
@@ -98,6 +108,7 @@ const projects: Project[] = [
     title: "Gift Card Shop",
     description:
       "Production-ready gift-card marketplace with neo-brutalist UI, referrals, discount codes, support tickets and an analytics admin dashboard.",
+    image: "/projects/giftcard.jpg",
     tags: ["Django REST", "Next.js", "JWT", "PostgreSQL"],
     category: "E-Commerce",
   },
@@ -105,6 +116,7 @@ const projects: Project[] = [
     title: "GameShop",
     description:
       "Sleek gaming storefront with genre sections, animated game cards and direct WhatsApp checkout integration.",
+    image: "/projects/gameshop.jpg",
     tags: ["HTML", "CSS", "JavaScript", "WhatsApp API"],
     category: "E-Commerce",
   },
@@ -112,6 +124,7 @@ const projects: Project[] = [
     title: "EcoCoin",
     description:
       "Smart-contract token on Solana with an airdrop and gamification system.",
+    image: "/projects/ecocoin.jpg",
     tags: ["Rust", "Solana CLI", "JavaScript", "spl"],
     category: "Web3",
   },
@@ -119,6 +132,7 @@ const projects: Project[] = [
     title: "BlogScribe — AI WordPress Bot",
     description:
       "AI content generator that writes and auto-publishes posts to WordPress via its REST API.",
+    image: "/projects/wordpress-bot.jpg",
     tags: ["Django", "OpenAI API", "Next.js", "WordPress REST"],
     category: "AI & Automation",
   },
@@ -126,6 +140,7 @@ const projects: Project[] = [
     title: "Job Matcher MVP",
     description:
       "AI-powered job-matching platform (à la Upwork / Jobberman) pairing candidates with roles.",
+    image: "/projects/jobs.png",
     tags: ["Django REST", "Next.js", "PostgreSQL", "Tailwind"],
     category: "AI & Automation",
     inProgress: true,
@@ -134,6 +149,7 @@ const projects: Project[] = [
     title: "RoadRescue",
     description:
       "Real-time, location-based roadside-assistance platform connecting stranded drivers with nearby mechanics.",
+    image: "/projects/roadrescue.jpg",
     tags: ["React", "TypeScript", "Firebase", "Gemini AI"],
     category: "Web Apps",
   },
@@ -141,6 +157,7 @@ const projects: Project[] = [
     title: "ServiceMan",
     description:
       "Three-sided service marketplace connecting clients, servicemen and admins — booking, emergency detection, price negotiation and Paystack payments.",
+    image: "/projects/serviceman.jpg",
     tags: ["React", "Redux", "React Query", "Laravel", "Paystack"],
     category: "Web Apps",
   },
@@ -148,6 +165,7 @@ const projects: Project[] = [
     title: "Crowdsource Emergency",
     description:
       "Real-time emergency-response platform powered by crowdsourced reporting.",
+    image: "/projects/emergency.jpg",
     tags: ["Next.js", "Laravel", "PostgreSQL (Neon)", "Render"],
     category: "Web Apps",
   },
@@ -155,6 +173,7 @@ const projects: Project[] = [
     title: "Efiko Education Platform",
     description:
       "Corporate education web platform — blog, podcast, resources, solutions, gallery and newsletter — across Nigeria and USA deployments.",
+    image: "/projects/efikoedu.jpg",
     tags: ["CodeIgniter 4", "PHP", "MySQL", "Bootstrap"],
     category: "Web Apps",
   },
@@ -162,6 +181,7 @@ const projects: Project[] = [
     title: "Lumina Library System",
     description:
       "Web-based library-management system with book tracking, member management and real-time borrowing status.",
+    image: "/projects/lumina.jpg",
     tags: ["TypeScript", "Vite", "Node.js", "REST API"],
     category: "Tools",
   },
@@ -169,6 +189,7 @@ const projects: Project[] = [
     title: "QR Streamer",
     description:
       "Real-time screen-streaming admin panel with live region cropping, viewer notifications and connected-unit monitoring.",
+    image: "/projects/qrstreamer.jpg",
     tags: ["Node.js", "Screen Capture API", "WebSockets"],
     category: "Tools",
   },
@@ -202,13 +223,6 @@ const filters: ("All" | Category)[] = [
 function ProjectCard({ project }: { project: Project }) {
   const meta = categoryMeta[project.category];
   const Icon = meta.icon;
-  const monogram = project.title
-    .replace(/[^A-Za-z ]/g, "")
-    .split(" ")
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("");
 
   return (
     <motion.div
@@ -220,18 +234,32 @@ function ProjectCard({ project }: { project: Project }) {
       whileHover={{ y: -6 }}
       className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-card/50 backdrop-blur transition-colors hover:border-primary/40"
     >
-      {/* Cover */}
-      <div
-        className={`relative flex h-36 items-center justify-center overflow-hidden bg-gradient-to-br ${meta.gradient}`}
-      >
-        <Icon className="absolute -right-4 -top-4 h-32 w-32 text-white/15" />
-        <span className="font-display text-4xl font-bold text-white drop-shadow">
-          {monogram}
-        </span>
+      {/* Cover photo */}
+      <div className="relative h-44 w-full overflow-hidden">
+        <Image
+          src={project.image}
+          alt={`${project.title} preview`}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        {/* category tint + legibility gradient */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-br ${meta.gradient} opacity-25 mix-blend-multiply`}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent" />
+
+        {/* category chip */}
+        <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-black/40 px-2.5 py-1 text-xs font-medium text-white backdrop-blur">
+          <Icon size={12} />
+          {project.category}
+        </div>
+
         {/* shimmer sweep on hover */}
-        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+
         {project.inProgress && (
-          <Badge className="absolute right-3 top-3 border-0 bg-black/30 text-white backdrop-blur">
+          <Badge className="absolute right-3 top-3 border-0 bg-yellow-500/90 text-black">
             In Progress
           </Badge>
         )}
@@ -244,10 +272,6 @@ function ProjectCard({ project }: { project: Project }) {
 
       {/* Body */}
       <div className="flex flex-1 flex-col p-5">
-        <div className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-primary">
-          <Icon size={13} />
-          {project.category}
-        </div>
         <h3 className="font-display text-lg font-bold leading-snug">
           {project.title}
         </h3>

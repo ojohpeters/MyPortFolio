@@ -128,7 +128,8 @@
   background: hsl(var(--primary) / 0.7);
 }
 
-/* Subtle grid backdrop */
+/* Subtle grid backdrop. Cell size is responsive so the grid keeps the same
+   visual density on phones as it has on wide desktops. */
 .bg-grid {
   background-image: linear-gradient(
       to right,
@@ -136,7 +137,17 @@
       transparent 1px
     ),
     linear-gradient(to bottom, hsl(var(--foreground) / 0.04) 1px, transparent 1px);
-  background-size: 56px 56px;
+  background-size: 32px 32px;
+}
+@media (min-width: 768px) {
+  .bg-grid {
+    background-size: 44px 44px;
+  }
+}
+@media (min-width: 1280px) {
+  .bg-grid {
+    background-size: 56px 56px;
+  }
 }
 
 /* Marquee for tech strip */
