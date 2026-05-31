@@ -59,6 +59,10 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-inter)", "sans-serif"],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -68,10 +72,35 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(20px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-14px)" },
+        },
+        "spin-slow": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        aurora: {
+          "0%, 100%": { transform: "translate(0,0) scale(1)" },
+          "33%": { transform: "translate(30px,-30px) scale(1.1)" },
+          "66%": { transform: "translate(-20px,20px) scale(0.95)" },
+        },
+        shimmer: {
+          "100%": { transform: "translateX(100%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-up": "fade-up 0.6s ease-out both",
+        float: "float 6s ease-in-out infinite",
+        "spin-slow": "spin-slow 18s linear infinite",
+        aurora: "aurora 18s ease-in-out infinite",
+        shimmer: "shimmer 2.5s infinite",
       },
     },
   },

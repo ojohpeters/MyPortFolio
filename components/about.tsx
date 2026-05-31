@@ -1,75 +1,132 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView, animate } from "framer-motion";
 import Image from "next/image";
+import SectionHeading from "@/components/section-heading";
+
+const stats = [
+  { value: 5, suffix: "+", label: "Years Building" },
+  { value: 25, suffix: "+", label: "Projects Shipped" },
+  { value: 15, suffix: "+", label: "Technologies" },
+  { value: 100, suffix: "%", label: "Remote Ready" },
+];
+
+function Counter({ value, suffix }: { value: number; suffix: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true });
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(0, value, {
+      duration: 1.4,
+      ease: "easeOut",
+      onUpdate: (v) => setDisplay(Math.round(v)),
+    });
+    return () => controls.stop();
+  }, [inView, value]);
+
+  return (
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
+  );
+}
+
+const highlights = [
+  "Web2 & Web3 Development",
+  "AI / ML Integration",
+  "Digital Forensics (DFIR)",
+  "Embedded & IoT Systems",
+];
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-muted/30">
+    <section id="about" className="relative py-24">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto"
-        >
-          <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="w-full md:w-1/3 flex justify-center">
-              <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-primary">
+        <SectionHeading
+          eyebrow="About Me"
+          title="The person behind the code"
+          description="Self-taught, hands-on, and obsessed with shipping secure, scalable products."
+        />
+
+        <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-[300px_1fr]">
+          {/* Avatar */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex justify-center"
+          >
+            <div className="relative">
+              <div className="absolute -inset-3 animate-spin-slow rounded-full bg-gradient-to-tr from-primary via-fuchsia-500 to-accent opacity-70 blur-md" />
+              <div className="relative h-52 w-52 overflow-hidden rounded-full border-4 border-background">
                 <Image
-                  src="/image.png?height=192&width=192"
-                  alt="Peters Ojoh"
+                  src="/image.png"
+                  alt="Ojoh Peters"
                   fill
                   className="object-cover"
                 />
               </div>
             </div>
-            <div className="w-full md:w-2/3">
-              <p className="text-lg mb-6">
-                <p className="text-lg mb-6">
-                  I am a self-taught and hands-on Full-Stack Developer,
-                  Cybersecurity Enthusiast with a focus on Digital Forensics and
-                  Incident Response, and an Electronics Hobbyist exploring
-                  embedded systems and RF technologies. I have experience
-                  building modern web applications, AI-integrated tools, and
-                  blockchain-based solutions. My technical stack spans Laravel,
-                  Django, Flask, Node.js, and Solidity, with growing expertise
-                  in Rust for Web2 and Web3 development. Beyond software, I have
-                  a background in networking and electronics repair, and I am
-                  pursuing Electrical Engineering at Air Force Institute Of Technology, Kaduna Nigeria(AFIT),  to deepen my expertise
-                  in embedded systems, IoT, and digital security. I’ve
-                  contributed to both Web2 platforms and Web3 projects, trained
-                  AI models, and implemented machine learning solutions. I enjoy
-                  working with startups to quickly ship secure and scalable
-                  MVPs, and I am passionate about bridging the gap between
-                  hardware and software in real-world problem-solving.
-                </p>
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div className="flex flex-col">
-                  <span className="text-muted-foreground text-sm">
-                    Experience
-                  </span>
-                  <span className="font-medium">5+ Years</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-muted-foreground text-sm">
-                    Projects
-                  </span>
-                  <span className="font-medium">20+ Completed</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-muted-foreground text-sm">
-                    Location
-                  </span>
-                  <span className="font-medium">Remote</span>
-                </div>
-              </div>
+          </motion.div>
+
+          {/* Bio */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+              I&apos;m a Full-Stack Developer, Cybersecurity enthusiast focused
+              on Digital Forensics &amp; Incident Response, and an electronics
+              hobbyist exploring embedded systems and RF. I build modern web
+              apps, AI-integrated tools, and blockchain solutions across Laravel,
+              Django, Flask, Node.js and Solidity — with growing Rust expertise
+              for Web2 and Web3. Alongside software, I bring a background in
+              networking and electronics repair, and I&apos;m pursuing Electrical
+              Engineering at the Air Force Institute of Technology (AFIT),
+              Kaduna. I love partnering with startups to ship secure, scalable
+              MVPs fast.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {highlights.map((h) => (
+                <span
+                  key={h}
+                  className="rounded-full border border-border/60 bg-card/50 px-3 py-1 text-sm text-foreground/80 backdrop-blur"
+                >
+                  {h}
+                </span>
+              ))}
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Stats */}
+        <div className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-4 md:grid-cols-4">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="gradient-border rounded-2xl bg-card/40 p-6 text-center backdrop-blur"
+            >
+              <div className="font-display text-3xl font-bold text-gradient md:text-4xl">
+                <Counter value={stat.value} suffix={stat.suffix} />
+              </div>
+              <div className="mt-1 text-sm text-muted-foreground">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

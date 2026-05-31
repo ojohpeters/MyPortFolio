@@ -10,42 +10,42 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
+    --primary: 250 84% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 96%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    --accent: 190 95% 45%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 250 84% 60%;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 240 14% 4%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
+    --card: 240 12% 7%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: 240 12% 6%;
     --popover-foreground: 0 0% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --primary: 255 92% 70%;
+    --primary-foreground: 240 14% 4%;
+    --secondary: 240 6% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 6% 13%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 190 95% 55%;
+    --accent-foreground: 240 14% 4%;
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 6% 16%;
+    --input: 240 6% 16%;
+    --ring: 255 92% 70%;
   }
 }
 
@@ -54,9 +54,100 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
   }
   html {
     scroll-behavior: smooth;
   }
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Gradient text used for headings and accents */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-fuchsia-500 to-accent bg-clip-text text-transparent;
+  }
+  .text-gradient-soft {
+    @apply bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent;
+  }
+
+  /* Glassmorphism surface */
+  .glass {
+    @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+  }
+  .dark .glass {
+    @apply border-white/10 bg-white/[0.03];
+  }
+
+  /* Glow behind interactive elements */
+  .glow {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.1),
+      0 8px 40px -12px hsl(var(--primary) / 0.5);
+  }
+
+  /* Animated conic gradient border */
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary) / 0.6),
+      transparent 40%,
+      transparent 60%,
+      hsl(var(--accent) / 0.6)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.4);
+  border-radius: 999px;
+  border: 2px solid hsl(var(--background));
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.7);
+}
+
+/* Subtle grid backdrop */
+.bg-grid {
+  background-image: linear-gradient(
+      to right,
+      hsl(var(--foreground) / 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, hsl(var(--foreground) / 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Marquee for tech strip */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }
