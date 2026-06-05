@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(identify public/image.png)",
+      "Bash(python3 -c \"from PIL import Image; im=Image.open\\('public/image.png'\\); print\\(im.size, im.mode\\)\")",
+      "Bash(npm run *)"
+    ]
+  }
+}
