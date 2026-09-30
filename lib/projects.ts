@@ -417,7 +417,7 @@ export const workProducts: WorkProduct[] = [
 export const experience = {
   company: "Efiko Management Consulting",
   role: "Senior Software & Cloud Solutions Engineer",
-  period: "Dec 2025 — Present",
+  period: "Aug 2026 — Present",
   location: "Nigeria · USA (hybrid/remote)",
   summary:
     "Lead engineer on Efiko's software portfolio — taking B2B products from client SRS to production, mostly as sole developer, and owning how they're deployed, secured and operated.",
