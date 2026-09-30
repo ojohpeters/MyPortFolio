@@ -53,6 +53,14 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        stage: {
+          DEFAULT: "hsl(var(--stage))",
+          foreground: "hsl(var(--stage-foreground))",
+        },
+      },
+      transitionTimingFunction: {
+        standard: "var(--ease-standard)",
+        fluid: "var(--ease-fluid)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -62,6 +70,7 @@ const config = {
       fontFamily: {
         sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
         display: ["var(--font-display)", "var(--font-inter)", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
       },
       keyframes: {
         "accordion-down": {

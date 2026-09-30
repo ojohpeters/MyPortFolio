@@ -6,7 +6,7 @@ import { join } from "path"
 // preview on WhatsApp / X / LinkedIn shows the profile image. Reused for both
 // Open Graph and Twitter cards.
 export const runtime = "nodejs"
-export const alt = "Ojoh Peters Ojochegbe — Full-Stack Developer | Web2, Web3, AI & DFIR"
+export const alt = "Ojoh Peters Ojochegbe — Senior Software & Cloud Solutions Engineer"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -154,7 +154,7 @@ export default function OpengraphImage() {
               display: "flex",
             }}
           >
-            Full-Stack Developer · Web2 &amp; Web3 · AI · DFIR
+            Senior Software &amp; Cloud Solutions Engineer
           </div>
 
           <div

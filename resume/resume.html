@@ -1,0 +1,171 @@
+<!doctype html>
+<!--
+  Source for public/resume.pdf. Edit this file, then run:
+    npm run resume
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Ojoh Peters Ojochegbe — CV</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0f0f14; --muted: #5b5d6b; --line: #e6e6ee; --brand: #5b4be6; --brand2: #0e9fb8;
+  }
+  html, body { font-family: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; color: var(--ink); font-size: 8.35pt; line-height: 1.38; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; display: grid; grid-template-columns: 62mm 1fr; }
+  aside { background: linear-gradient(170deg, #17132f 0%, #0d0c18 60%, #0a1418 100%); color: #e9e8f3; padding: 13mm 7mm 10mm 8mm; }
+  main { padding: 11mm 10mm 8mm 9mm; }
+
+  .name { font-size: 22pt; font-weight: 700; letter-spacing: -0.03em; line-height: 1.02; }
+  .role { margin-top: 5px; font-size: 9.6pt; font-weight: 600; background: linear-gradient(90deg, var(--brand), var(--brand2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .tagline { margin-top: 3px; color: var(--muted); font-size: 8.4pt; }
+
+  h2 { font-size: 7.4pt; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brand); margin: 11px 0 6px; display: flex; align-items: center; gap: 8px; }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  aside h2 { color: #a99ffb; margin-top: 16px; }
+  aside h2::after { background: rgba(255,255,255,0.12); }
+  aside h2:first-child { margin-top: 0; }
+
+  .contact div { display: grid; grid-template-columns: 11mm 1fr; margin-bottom: 4px; font-size: 7.9pt; }
+  .contact b { font-size: 6.6pt; letter-spacing: 0.12em; color: #8e89b8; font-weight: 600; padding-top: 1px; }
+  .contact a { color: #ecebfa; text-decoration: none; word-break: break-word; }
+
+  .group { margin-bottom: 8px; }
+  .group h3 { font-size: 7.6pt; font-weight: 600; color: #cfcbf2; margin-bottom: 4px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 3px; }
+  .chips span { font-size: 7.2pt; padding: 1.5px 6px; border-radius: 99px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); color: #e3e1f5; }
+
+  .edu { margin-bottom: 8px; }
+  .edu .when { font-size: 6.8pt; letter-spacing: 0.1em; color: #8e89b8; font-weight: 600; }
+  .edu .what { font-weight: 600; font-size: 8.2pt; }
+  .edu .where { color: #b9b6d3; font-size: 7.6pt; }
+  .langs div { display: flex; justify-content: space-between; font-size: 7.9pt; margin-bottom: 2px; }
+  .langs span:last-child { color: #a5a2c4; }
+
+  .profile { color: #2b2c36; font-size: 8.5pt; }
+
+  .job { margin-bottom: 8px; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .job-title { font-weight: 700; font-size: 9.5pt; letter-spacing: -0.01em; }
+  .job-title .at { font-weight: 500; color: var(--muted); }
+  .when { font-size: 7.6pt; color: var(--muted); white-space: nowrap; font-weight: 500; }
+  .job-sub { color: var(--muted); font-size: 7.9pt; margin-top: 1px; }
+  ul { margin: 4px 0 0 0; list-style: none; }
+  li { position: relative; padding-left: 10px; margin-bottom: 2px; color: #262731; }
+  li::before { content: ""; position: absolute; left: 1px; top: 5.2px; width: 4px; height: 4px; border-radius: 50%; background: var(--brand); }
+  li b { font-weight: 600; color: var(--ink); }
+
+  .products { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 12px; margin-top: 6px; }
+  .product { border: 1px solid var(--line); border-radius: 6px; padding: 5px 7px; }
+  .product b { font-size: 8.3pt; }
+  .product p { color: var(--muted); font-size: 7.5pt; line-height: 1.35; }
+
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 14px; }
+  .projects div { font-size: 7.9pt; color: #30313b; }
+  .projects b { color: var(--ink); }
+  .foot { margin-top: 10px; font-size: 7.3pt; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="page">
+  <aside>
+    <h2>Contact</h2>
+    <div class="contact">
+      <div><b>TEL</b><span>+234 815 330 4439</span></div>
+      <div><b>MAIL</b><a href="mailto:petersojochegbe@gmail.com">petersojochegbe@gmail.com</a></div>
+      <div><b>LOC</b><span>Kaduna, Nigeria · Remote</span></div>
+      <div><b>WEB</b><a href="https://ojohpeters.vercel.app">ojohpeters.vercel.app</a></div>
+      <div><b>GIT</b><a href="https://github.com/ojohpeters">github.com/ojohpeters</a></div>
+      <div><b>IN</b><a href="https://www.linkedin.com/in/ojoh-peter-ojochegbe-79b0603b6">linkedin.com/in/ojoh-peter-ojochegbe-79b0603b6</a></div>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="group"><h3>Languages</h3><div class="chips"><span>PHP</span><span>TypeScript</span><span>JavaScript</span><span>Python</span><span>Dart</span><span>SQL</span><span>Rust</span></div></div>
+    <div class="group"><h3>Frameworks</h3><div class="chips"><span>Laravel 12/13</span><span>Vue 3 · Inertia</span><span>Next.js · React</span><span>CodeIgniter 4</span><span>Django · FastAPI</span><span>Flutter</span><span>Tailwind CSS</span></div></div>
+    <div class="group"><h3>Cloud &amp; DevOps</h3><div class="chips"><span>GitHub Actions</span><span>Docker</span><span>Linux</span><span>cPanel / WHM</span><span>Cloudflare</span><span>Vercel</span><span>Fly.io</span><span>Render</span><span>Backups &amp; DR</span></div></div>
+    <div class="group"><h3>Data &amp; Realtime</h3><div class="chips"><span>MySQL</span><span>PostgreSQL · RLS</span><span>Redis</span><span>MongoDB</span><span>Firebase</span><span>Laravel Reverb</span><span>Web Push</span></div></div>
+    <div class="group"><h3>AI &amp; Integrations</h3><div class="chips"><span>Claude API</span><span>OpenAI · Azure OpenAI</span><span>Stripe Connect</span><span>Paystack</span><span>WhatsApp Cloud API</span><span>Microsoft Graph</span></div></div>
+    <div class="group"><h3>Security</h3><div class="chips"><span>App hardening</span><span>Incident response</span><span>DFIR</span><span>Networking</span></div></div>
+
+    <h2>Education</h2>
+    <div class="edu"><div class="when">2025 – PRESENT</div><div class="what">B.Eng. Electrical Engineering</div><div class="where">Air Force Institute of Technology (AFIT), Kaduna</div></div>
+    <div class="edu"><div class="when">2022 – 2023</div><div class="what">Backend Web Development</div><div class="where">SACS Computers — Certificate (PHP &amp; Laravel)</div></div>
+
+    <h2>Languages</h2>
+    <div class="langs">
+      <div><span>English</span><span>Fluent</span></div>
+      <div><span>Igala</span><span>Native</span></div>
+      <div><span>Yoruba</span><span>Conversational</span></div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="name">Ojoh Peters Ojochegbe</div>
+    <div class="role">Senior Software &amp; Cloud Solutions Engineer</div>
+    <div class="tagline">Multi-tenant SaaS · Cloud deployment &amp; operations · AI integration · Security</div>
+
+    <h2>Profile</h2>
+    <p class="profile">
+      Senior engineer with 5+ years building web platforms, multi-tenant SaaS and AI-integrated products. At Efiko
+      Management Consulting I lead engineering on the company's B2B product portfolio — taking products from client
+      specifications to production, largely as sole developer, and owning how they are deployed, monitored, backed up
+      and secured. Comfortable across the whole stack: Laravel/Vue and Next.js on the web, Flutter on mobile, and the
+      CI/CD, hosting and security work underneath.
+    </p>
+
+    <h2>Experience</h2>
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Senior Software &amp; Cloud Solutions Engineer</div>
+        <div class="when">Dec 2025 – Present</div>
+      </div>
+      <div class="job-sub"><b style="color:var(--ink);font-weight:600">Efiko Management Consulting</b> · Nigeria &amp; USA · Lead engineer on the product portfolio</div>
+      <ul>
+        <li>Built the company's <b>Pro suite of B2B SaaS products</b> end-to-end from SRS documents and client meetings — mostly as sole developer, on Laravel 13, Vue 3 / TypeScript (Inertia) and Tailwind.</li>
+        <li>Built <b>Efiko Daily</b> on web (Laravel 12, Reverb WebSockets, Web Push, Paystack) and as a <b>native Flutter app</b> for iOS and Android on a dedicated mobile API.</li>
+        <li>Lead developer on the <b>Efiko HRIS</b> suite (CodeIgniter 4) — performance, L&amp;D, payroll/PAYE, succession, grievance and 10+ other modules; built the Nigeria and USA corporate websites and the EfikoHub app launcher.</li>
+        <li><b>Cloud &amp; operations:</b> production deployments on cPanel/WHM behind Cloudflare, GitHub Actions CI (PHP 8.4/8.5 matrix, static analysis), realtime and push infrastructure (Reverb, Web Push, Firebase), encrypted off-server backups with retention and DR documentation, and a server-wide domain inventory tool.</li>
+        <li><b>Security:</b> hardening and incident response across company platforms — access-control and API-token fixes, CSRF, MFA/passkeys and tamper-evident audit logs.</li>
+        <li>Shipped <b>AI features on the Claude API</b>: qualitative-feedback synthesis and an agent that drafts daily headline summaries for human approval.</li>
+      </ul>
+      <div class="products">
+        <div class="product"><b>Efiko Daily</b><p>Team accountability SaaS + Flutter app: rollover engine, live stand-ups, reports, subscriptions.</p></div>
+        <div class="product"><b>SalesPro</b><p>Multi-tenant pipeline: 8-level hierarchies, Kanban, forecasting, mandatory next action · 115 tests.</p></div>
+        <div class="product"><b>TrainerPro</b><p>Trainer practice management: QR attendance, Zoom/Teams import, certificates, Kirkpatrick L3.</p></div>
+        <div class="product"><b>FeedbackPro</b><p>Anonymous workshop feedback with scoring, branded reports and Claude-powered synthesis.</p></div>
+        <div class="product"><b>CoachPro</b><p>Coaching practice platform: engagements, sessions, goals, invoicing, client portal, passkeys.</p></div>
+        <div class="product"><b>RiskPro · WorkFlow Pro</b><p>Operational-risk RCSA with KRI API and audit trail; no-code approval workflows with SLAs.</p></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Freelance Full-Stack Engineer <span class="at">· Independent</span></div>
+        <div class="when">2023 – Present</div>
+      </div>
+      <ul>
+        <li><b>Rebuilders Path Systems (US)</b> — Laravel 13 public site and staff platform: MFA, CRM, deadline engine and workflows; documents in SharePoint via Microsoft Graph, an Azure OpenAI document assistant and Stripe billing.</li>
+        <li><b>Housing for Humanity International</b> — 40+ page NGO website on Next.js 16, delivered to the client's architecture with documented handover.</li>
+        <li><b>Auctor Stack</b> — agent-native AI backend: FastAPI, Postgres Row-Level Security, BYOK model gateway, grounded retrieval, SDKs, CLI and MCP server on Fly.io.</li>
+        <li><b>FlexBill</b> — WhatsApp-first B2B billing on Next.js 16 and Prisma with Stripe Connect direct charges and signed-webhook verification.</li>
+        <li><b>EcoCoin</b> (2024 – 2025) — Solana SPL token with airdrop, gamification and Phantom wallet.</li>
+      </ul>
+    </div>
+
+    <h2>Selected earlier projects</h2>
+    <div class="projects">
+      <div><b>Public Records NG</b> — hub for Nigeria's public records (Laravel + React).</div>
+      <div><b>NDNB</b> — verified national biographies with editorial workflow.</div>
+      <div><b>The Green Seal</b> — executive activity tracking for IHS-BiRD&amp;L.</div>
+      <div><b>ServiceMan</b> — three-sided service marketplace with Paystack.</div>
+      <div><b>Crowdsource Emergency</b> — real-time emergency reporting (Next.js + Laravel).</div>
+      <div><b>BlogScribe</b> — AI writer auto-publishing to WordPress (Django + OpenAI).</div>
+    </div>
+
+    <p class="foot">Portfolio and project details: ojohpeters.vercel.app · Source code and live demos available on request.</p>
+  </main>
+</div>
+</body>
+</html>

@@ -1,18 +1,19 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Space_Grotesk } from "next/font/google"
+import { Inter, Inter_Tight, Instrument_Serif } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
 import { Toaster } from "@/components/toaster"
-import ScrollProgress from "@/components/scroll-progress"
-import AnimatedBackground from "@/components/animated-background"
+import Grain from "@/components/motion/grain"
+import MotionProvider from "@/components/motion/providers"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
-const spaceGrotesk = Space_Grotesk({
+const interTight = Inter_Tight({ subsets: ["latin"], variable: "--font-display" })
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-display",
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-serif",
 })
 
 const siteUrl =
@@ -24,12 +25,12 @@ const siteUrl =
       : "https://ojohpeters.vercel.app")
 
 const description =
-  "Ojoh Peters Ojochegbe — Full-Stack Developer building secure, scalable products across Web2, Web3, AI & automation. Laravel, Next.js, Django, Vue and Rust, with a focus on DFIR / cybersecurity. 25+ projects shipped, available for freelance & collaborations."
+  "Ojoh Peters Ojochegbe — Senior Software & Cloud Solutions Engineer at Efiko Management Consulting. I take B2B products from spec to production: multi-tenant SaaS, cloud deployments, AI features and hardened infrastructure. Laravel, Vue, Next.js, Django, Flutter and Rust."
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Ojoh Peters | Full-Stack Developer (Web2, Web3, AI & DFIR)",
+    default: "Ojoh Peters | Senior Software & Cloud Solutions Engineer",
     template: "%s | Ojoh Peters",
   },
   description,
@@ -40,7 +41,11 @@ export const metadata: Metadata = {
   keywords: [
     "Ojoh Peters",
     "Ojochegbe",
+    "Senior Software Engineer",
+    "Cloud Solutions Engineer",
+    "Efiko Management Consulting",
     "Full-Stack Developer",
+    "SaaS Developer",
     "Web3 Developer",
     "Laravel Developer",
     "Next.js Developer",
@@ -57,13 +62,13 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Ojoh Peters — Portfolio",
-    title: "Ojoh Peters | Full-Stack Developer (Web2, Web3, AI & DFIR)",
+    title: "Ojoh Peters | Senior Software & Cloud Solutions Engineer",
     description,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ojoh Peters | Full-Stack Developer",
+    title: "Ojoh Peters | Senior Software & Cloud Solutions Engineer",
     description,
     creator: "@_smok3scr33n",
   },
@@ -74,6 +79,21 @@ export const metadata: Metadata = {
   },
 }
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ojoh Peters Ojochegbe",
+  jobTitle: "Senior Software & Cloud Solutions Engineer",
+  worksFor: { "@type": "Organization", name: "Efiko Management Consulting" },
+  url: siteUrl,
+  address: { "@type": "PostalAddress", addressLocality: "Kaduna", addressCountry: "NG" },
+  sameAs: [
+    "https://github.com/ojohpeters",
+    "https://x.com/_smok3scr33n",
+    "https://www.linkedin.com/in/ojoh-peter-ojochegbe-79b0603b6",
+  ],
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -81,16 +101,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
+      <body className={`${inter.variable} ${interTight.variable} ${instrumentSerif.variable} font-sans`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
-          <ScrollProgress />
-          <AnimatedBackground />
-          <div className="relative flex min-h-screen flex-col">
-            <Navbar />
+          <MotionProvider>
+            <Grain />
             {children}
-            <Footer />
             <Toaster />
-          </div>
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

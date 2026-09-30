@@ -4,48 +4,56 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: 40 20% 98.5%;
+    --foreground: 240 12% 6%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 240 12% 6%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 250 84% 60%;
+    --popover-foreground: 240 12% 6%;
+    --primary: 248 80% 58%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
-    --accent: 190 95% 45%;
+    --secondary: 240 6% 95%;
+    --secondary-foreground: 240 12% 10%;
+    --muted: 240 6% 95%;
+    --muted-foreground: 240 5% 40%;
+    --accent: 188 90% 40%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 250 84% 60%;
-    --radius: 0.75rem;
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 8% 89%;
+    --input: 240 8% 89%;
+    --ring: 248 80% 58%;
+    --radius: 0.875rem;
+
+    /* Always-dark surface used by the film + finale in both themes */
+    --stage: 240 18% 5%;
+    --stage-foreground: 0 0% 98%;
+
+    --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --ease-fluid: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .dark {
-    --background: 240 14% 4%;
-    --foreground: 0 0% 98%;
+    --background: 240 16% 4%;
+    --foreground: 0 0% 97%;
     --card: 240 12% 7%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 12% 6%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 255 92% 70%;
-    --primary-foreground: 240 14% 4%;
-    --secondary: 240 6% 14%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 6% 13%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 190 95% 55%;
-    --accent-foreground: 240 14% 4%;
-    --destructive: 0 62.8% 45%;
+    --card-foreground: 0 0% 97%;
+    --popover: 240 12% 7%;
+    --popover-foreground: 0 0% 97%;
+    --primary: 250 95% 72%;
+    --primary-foreground: 240 16% 5%;
+    --secondary: 240 8% 12%;
+    --secondary-foreground: 0 0% 97%;
+    --muted: 240 8% 12%;
+    --muted-foreground: 240 6% 66%;
+    --accent: 186 90% 55%;
+    --accent-foreground: 240 16% 5%;
+    --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 6% 16%;
-    --input: 240 6% 16%;
-    --ring: 255 92% 70%;
+    --border: 240 8% 15%;
+    --input: 240 8% 15%;
+    --ring: 250 95% 72%;
+    --stage: 240 20% 3%;
   }
 }
 
@@ -53,66 +61,151 @@
   * {
     @apply border-border;
   }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
   body {
     @apply bg-background text-foreground antialiased;
-  }
-  html {
-    scroll-behavior: smooth;
+    font-feature-settings: "ss01", "cv11";
   }
   ::selection {
-    @apply bg-primary/30 text-foreground;
+    @apply bg-primary/25 text-foreground;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 }
 
 @layer utilities {
-  /* Gradient text used for headings and accents */
   .text-gradient {
     @apply bg-gradient-to-r from-primary via-fuchsia-500 to-accent bg-clip-text text-transparent;
   }
-  .text-gradient-soft {
-    @apply bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent;
-  }
 
-  /* Glassmorphism surface */
-  .glass {
-    @apply border border-white/10 bg-white/5 backdrop-blur-xl;
-  }
-  .dark .glass {
-    @apply border-white/10 bg-white/[0.03];
-  }
-
-  /* Glow behind interactive elements */
-  .glow {
-    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.1),
-      0 8px 40px -12px hsl(var(--primary) / 0.5);
-  }
-
-  /* Animated conic gradient border */
-  .gradient-border {
-    position: relative;
-  }
-  .gradient-border::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(
-      135deg,
-      hsl(var(--primary) / 0.6),
-      transparent 40%,
-      transparent 60%,
-      hsl(var(--accent) / 0.6)
+  /* Display serif accent with a slow travelling gradient */
+  .serif-shimmer {
+    font-family: var(--font-serif), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    background-image: linear-gradient(
+      100deg,
+      hsl(var(--primary)) 0%,
+      hsl(300 80% 62%) 30%,
+      hsl(var(--accent)) 55%,
+      hsl(var(--primary)) 80%
     );
-    -webkit-mask: linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer-text 9s var(--ease-standard) infinite alternate;
+    padding-right: 0.06em; /* keep the italic overhang from clipping */
+  }
+
+  .glass {
+    background: hsl(var(--background) / 0.72);
+    backdrop-filter: blur(18px) saturate(1.6);
+    -webkit-backdrop-filter: blur(18px) saturate(1.6);
+    border: 1px solid hsl(var(--foreground) / 0.08);
+  }
+
+  .glow {
+    box-shadow:
+      0 0 0 1px hsl(var(--primary) / 0.12),
+      0 10px 40px -12px hsl(var(--primary) / 0.55);
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--foreground) / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--foreground) / 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 }
 
-/* Custom scrollbar */
+@keyframes shimmer-text {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.animate-marquee {
+  animation: marquee 45s linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee-reverse 50s linear infinite;
+}
+
+/* Ambient glow orbs: drift, breathe and hue-shift on a ~10s loop */
+@keyframes orb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(80px) hue-rotate(0deg);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(40px, -30px, 0) scale(1.15);
+    filter: blur(90px) hue-rotate(35deg);
+    opacity: 0.8;
+  }
+}
+.animate-orb {
+  animation: orb 10s var(--ease-standard) infinite;
+}
+
+/* Film grain */
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-3%, 2%);
+  }
+  40% {
+    transform: translate(2%, -3%);
+  }
+  60% {
+    transform: translate(-2%, -1%);
+  }
+  80% {
+    transform: translate(3%, 3%);
+  }
+}
+.grain {
+  animation: grain 1.2s steps(5) infinite;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -120,45 +213,76 @@
   background: hsl(var(--background));
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary) / 0.4);
+  background: hsl(var(--foreground) / 0.18);
   border-radius: 999px;
   border: 2px solid hsl(var(--background));
 }
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary) / 0.7);
-}
 
-/* Subtle grid backdrop. Cell size is responsive so the grid keeps the same
-   visual density on phones as it has on wide desktops. */
-.bg-grid {
-  background-image: linear-gradient(
-      to right,
-      hsl(var(--foreground) / 0.04) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, hsl(var(--foreground) / 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-@media (min-width: 768px) {
-  .bg-grid {
-    background-size: 44px 44px;
-  }
-}
-@media (min-width: 1280px) {
-  .bg-grid {
-    background-size: 56px 56px;
+/* One global switch that neutralises motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-/* Marquee for tech strip */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* ---- Bento mini-clips (base styles = final frame, so reduced motion looks complete) ---- */
+@keyframes type-line {
+  0% { width: 0; }
+  35%, 100% { width: var(--w); }
 }
-.animate-marquee {
-  animation: marquee 30s linear infinite;
+.clip-type { width: var(--w); animation: type-line 4.5s var(--ease-fluid) infinite; }
+
+@keyframes dash-flow { to { stroke-dashoffset: -28; } }
+.clip-dash { animation: dash-flow 1.1s linear infinite; }
+
+@keyframes node-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.45); }
+  50% { box-shadow: 0 0 0 8px hsl(var(--primary) / 0); }
 }
+.clip-node { animation: node-pulse 2.4s var(--ease-standard) infinite; }
+
+@keyframes scan-y {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+.clip-scan { top: 100%; animation: scan-y 3.2s var(--ease-standard) infinite alternate; }
+
+@keyframes cell-ok {
+  0%, 30% { background: hsl(var(--foreground) / 0.08); }
+  45%, 100% { background: rgb(16 185 129 / 0.8); }
+}
+.clip-cell { background: rgb(16 185 129 / 0.8); animation: cell-ok 6.4s linear infinite; }
+
+@keyframes knob {
+  0%, 42% { transform: translateX(0); }
+  50%, 92% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+.clip-knob { animation: knob 5s var(--ease-fluid) infinite; }
+@keyframes tenant-a { 0%, 42% { opacity: 1; } 50%, 92% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes tenant-b { 0%, 42% { opacity: 0; } 50%, 92% { opacity: 1; } 100% { opacity: 0; } }
+.clip-tenant-a { animation: tenant-a 5s var(--ease-fluid) infinite; }
+.clip-tenant-b { opacity: 0; animation: tenant-b 5s var(--ease-fluid) infinite; }
+
+@keyframes fill-x {
+  0% { width: 0%; }
+  75%, 100% { width: 100%; }
+}
+.clip-fill { width: 100%; animation: fill-x 4s var(--ease-standard) infinite; }
+
+@keyframes stream {
+  0%, 100% { transform: scaleY(0.35); }
+  50% { transform: scaleY(1); }
+}
+.clip-stream { animation: stream 1.2s var(--ease-standard) infinite; transform-origin: bottom; }
+
+@keyframes push-in {
+  0%, 8% { opacity: 0; transform: translateY(-10px) scale(0.96); }
+  16%, 100% { opacity: 1; transform: none; }
+}
+.clip-push { animation: push-in 6s var(--ease-fluid) infinite; }
