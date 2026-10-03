@@ -42,7 +42,7 @@ export default function DeployScreen({ paused = false }: { paused?: boolean }) {
   return (
     <div
       style={{ width: SCREEN_W, height: SCREEN_H }}
-      className="relative select-none overflow-hidden rounded-[10px] bg-[#0b0b12] font-sans text-[13px] text-zinc-200 antialiased"
+      className="relative select-none overflow-hidden rounded-[10px] bg-[#0e0c0a] font-sans text-[13px] text-zinc-200 antialiased"
     >
       {/* window chrome */}
       <div className="flex h-8 items-center gap-1.5 border-b border-white/[0.06] bg-white/[0.02] px-3">
@@ -66,7 +66,7 @@ export default function DeployScreen({ paused = false }: { paused?: boolean }) {
             {t > 2000 && (
               <>
                 <div className="text-zinc-500">Enumerating objects: 42, done.</div>
-                <div className="text-violet-300">→ Pipeline triggered</div>
+                <div className="text-orange-300">→ Pipeline triggered</div>
               </>
             )}
           </div>
@@ -74,7 +74,7 @@ export default function DeployScreen({ paused = false }: { paused?: boolean }) {
 
         {/* 1 — CI */}
         <Panel show={phase === 1}>
-          <Heading icon={<Loader2 size={14} className="animate-spin text-violet-300" />} title="Continuous integration" sub="GitHub Actions · PHP 8.4 · Node 22" />
+          <Heading icon={<Loader2 size={14} className="animate-spin text-orange-300" />} title="Continuous integration" sub="GitHub Actions · PHP 8.4 · Node 22" />
           <ul className="mt-4 space-y-2">
             {checks.map((c, i) => {
               const done = i < checksDone
@@ -94,9 +94,9 @@ export default function DeployScreen({ paused = false }: { paused?: boolean }) {
 
         {/* 2 — deploy */}
         <Panel show={phase === 2}>
-          <Heading icon={<Rocket size={14} className="text-cyan-300" />} title="Deploying to production" sub="Zero-downtime release" />
+          <Heading icon={<Rocket size={14} className="text-amber-200" />} title="Deploying to production" sub="Zero-downtime release" />
           <div className="mt-5 h-2 overflow-hidden rounded-full bg-white/10">
-            <div className="h-full rounded-full bg-gradient-to-r from-violet-500 to-cyan-400" style={{ width: `${deployPct}%` }} />
+            <div className="h-full rounded-full bg-gradient-to-r from-orange-500 to-amber-300" style={{ width: `${deployPct}%` }} />
           </div>
           <ul className="mt-5 space-y-2.5">
             {steps.map((s, i) => {
@@ -138,7 +138,7 @@ export default function DeployScreen({ paused = false }: { paused?: boolean }) {
             {[30, 42, 38, 55, 48, 62, 58, 70, 66, 78, 72, 84, 80, 92].map((h, i) => (
               <div
                 key={i}
-                className="flex-1 origin-bottom rounded-sm bg-gradient-to-t from-violet-500/50 to-cyan-400/90 transition-transform duration-700 ease-fluid"
+                className="flex-1 origin-bottom rounded-sm bg-gradient-to-t from-orange-500/50 to-amber-300/90 transition-transform duration-700 ease-fluid"
                 style={{ height: `${h}%`, transform: `scaleY(${t > 7000 + i * 60 ? 1 : 0})` }}
               />
             ))}

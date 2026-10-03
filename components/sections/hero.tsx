@@ -32,17 +32,17 @@ export default function Hero() {
       {/* atmosphere */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_70%_60%_at_60%_40%,black,transparent)]" />
-        <div className="animate-orb absolute -left-24 top-10 h-[26rem] w-[26rem] rounded-full bg-primary/40" />
-        <div className="animate-orb absolute -right-16 top-1/3 h-[24rem] w-[24rem] rounded-full bg-accent/35 [animation-delay:-5s]" />
+        <div className="animate-orb absolute -left-24 top-10 h-[26rem] w-[26rem] rounded-full bg-primary/[0.14]" />
+        <div className="animate-orb absolute -right-16 top-1/3 h-[24rem] w-[24rem] rounded-full bg-accent/[0.12] [animation-delay:-5s]" />
       </div>
 
       <div className="container grid items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-6 lg:px-8">
         <div className="relative z-10">
-          <h1 className="font-display text-[clamp(2.75rem,7.2vw,5.6rem)] font-semibold leading-[0.98] tracking-[-0.045em]">
+          <h1 className="font-display text-[clamp(2.75rem,7.2vw,5.6rem)] font-semibold leading-[1.02] tracking-[-0.035em]">
             {headline.map(({ w, accent }, i) => (
               <span key={i} className="inline-block overflow-hidden pb-[0.12em] pr-[0.25em] align-top">
                 <motion.span
-                  className={`inline-block ${accent ? "serif-shimmer text-[1.1em] leading-[0.9]" : ""}`}
+                  className={`inline-block ${accent ? "accent-shimmer" : ""}`}
                   initial={{ y: "105%", filter: "blur(12px)", opacity: 0 }}
                   animate={{ y: "0%", filter: "blur(0px)", opacity: 1 }}
                   transition={{ duration: 1, ease, delay: 0.15 + i * 0.07 }}

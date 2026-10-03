@@ -47,7 +47,7 @@ export default function SectionHeading({
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.9, ease, delay: 0.06 }}
-        className="mt-5 text-balance font-display text-4xl font-semibold leading-[1.05] tracking-[-0.035em] sm:text-5xl md:text-6xl [&_em]:serif-shimmer [&_em]:text-[1.08em]"
+        className="mt-5 text-balance font-display text-4xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-5xl md:text-6xl [&_em]:accent-shimmer [&_em]:not-italic"
       >
         {title}
       </motion.h2>

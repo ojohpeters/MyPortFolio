@@ -40,9 +40,9 @@ function MagneticButton({ href, children }: { href: string; children: React.Reac
       onPointerMove={onMove}
       onPointerLeave={reset}
       style={{ x, y }}
-      className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-white px-8 py-5 text-base font-semibold text-black shadow-[0_20px_60px_-15px_rgba(139,92,246,0.7)] transition-[box-shadow] duration-300 ease-standard hover:shadow-[0_24px_80px_-10px_rgba(139,92,246,0.9)] active:scale-[0.98] sm:text-lg"
+      className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-white px-8 py-5 text-base font-semibold text-black shadow-[0_20px_50px_-20px_rgba(0,0,0,0.8)] transition-[box-shadow] duration-300 ease-standard hover:shadow-[0_24px_60px_-18px_rgba(255,90,20,0.55)] active:scale-[0.98] sm:text-lg"
     >
-      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-violet-300/60 to-transparent transition-transform duration-700 ease-standard group-hover:translate-x-full" />
+      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 ease-standard group-hover:translate-x-full" />
       <span className="relative">{children}</span>
       <span className="relative grid h-8 w-8 place-items-center rounded-full bg-black text-white transition-transform duration-300 ease-standard group-hover:rotate-45">
         <ArrowUpRight size={16} />
@@ -66,13 +66,13 @@ export default function Finale() {
   }
 
   const input =
-    "w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-[15px] text-white placeholder:text-zinc-500 transition-colors duration-300 ease-standard focus:border-violet-400/60 focus:outline-none focus:ring-2 focus:ring-violet-400/20"
+    "w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-[15px] text-white placeholder:text-zinc-500 transition-colors duration-300 ease-standard focus:border-orange-400/60 focus:outline-none focus:ring-2 focus:ring-orange-400/20"
 
   return (
     <section ref={ref} id="contact" className="relative isolate scroll-mt-0 overflow-hidden bg-stage text-stage-foreground">
       {/* full-bleed atmosphere that slowly settles as it scrolls in */}
       <motion.div aria-hidden style={{ scale }} className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(124,58,237,0.45),transparent_70%),radial-gradient(40%_40%_at_85%_60%,rgba(34,211,238,0.22),transparent_70%),radial-gradient(40%_40%_at_10%_80%,rgba(192,38,211,0.2),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(70%_55%_at_50%_0%,rgba(255,90,20,0.22),transparent_70%)]" />
         <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:64px_64px] [mask-image:radial-gradient(ellipse_at_50%_20%,black,transparent_70%)]" />
       </motion.div>
       <div aria-hidden className="absolute inset-0 -z-10 shadow-[inset_0_0_200px_60px_rgba(0,0,0,0.85)]" />
@@ -86,12 +86,12 @@ export default function Finale() {
           className="text-center"
         >
           <div className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-400">
-            <span className="font-mono text-violet-300">08</span> — Contact
+            <span className="font-mono text-orange-300">08</span> — Contact
           </div>
-          <h2 className="mx-auto mt-6 max-w-5xl font-display text-[clamp(2.75rem,8vw,7rem)] font-semibold leading-[0.95] tracking-[-0.05em]">
+          <h2 className="mx-auto mt-6 max-w-5xl font-display text-[clamp(2.75rem,8vw,7rem)] font-semibold leading-[1] tracking-[-0.04em]">
             Have something worth building?
             <br />
-            <span className="serif-shimmer text-[1.08em]">Let&apos;s ship it.</span>
+            <span className="accent-shimmer">Let&apos;s ship it.</span>
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-pretty text-lg text-zinc-400">
             Tell me what you&apos;re working on — a product, a platform that needs hardening, or a role. I reply within
@@ -116,9 +116,9 @@ export default function Finale() {
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-300 ease-standard hover:-translate-y-0.5 hover:border-violet-400/40 hover:bg-white/[0.06] active:scale-[0.98]"
+                  className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-300 ease-standard hover:-translate-y-0.5 hover:border-orange-400/40 hover:bg-white/[0.06] active:scale-[0.98]"
                 >
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/[0.06] text-violet-200">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/[0.06] text-orange-200">
                     <Icon size={18} />
                   </span>
                   <span className="min-w-0 flex-1">
@@ -149,7 +149,7 @@ export default function Finale() {
             <textarea id="c-msg" required rows={5} placeholder="What are you building?" className={`${input} resize-none`} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
             <button
               type="submit"
-              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-violet-500 to-cyan-500 px-5 py-3.5 font-medium text-white transition-all duration-300 ease-standard hover:opacity-90 active:scale-[0.98]"
+              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-3.5 font-medium text-white transition-all duration-300 ease-standard hover:opacity-90 active:scale-[0.98]"
             >
               Send message <Send size={16} />
             </button>

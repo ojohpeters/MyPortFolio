@@ -49,12 +49,12 @@ function Globe() {
       mapSamples: 16000,
       mapBrightness: dark ? 5 : 8,
       mapBaseBrightness: dark ? 0 : 0.05,
-      baseColor: dark ? [0.25, 0.25, 0.32] : [1, 1, 1],
-      markerColor: [0.36, 0.3, 0.9],
-      glowColor: dark ? [0.2, 0.18, 0.35] : [0.93, 0.92, 1],
+      baseColor: dark ? [0.3, 0.27, 0.24] : [1, 1, 1],
+      markerColor: [0.93, 0.36, 0.08],
+      glowColor: dark ? [0.22, 0.16, 0.11] : [1, 0.96, 0.9],
       markers,
       arcs: markers.slice(1).map((m) => ({ from: KADUNA, to: m.location })),
-      arcColor: [0.05, 0.62, 0.72],
+      arcColor: [0.95, 0.5, 0.15],
       arcWidth: 0.5,
       arcHeight: 0.22,
       opacity: 0.95,
@@ -137,7 +137,7 @@ export default function Reach() {
             className="mb-8 md:mb-10"
             title={
               <span id="reach-title">
-                Built in Kaduna, <em>running across borders.</em>
+                Building from Kaduna, <em>shipping across borders.</em>
               </span>
             }
             description="I work with teams in Nigeria and the United States — Efiko operates in both — and overlap comfortably with European and US East Coast hours."

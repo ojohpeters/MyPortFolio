@@ -5,17 +5,11 @@ import { motion } from "framer-motion"
 import { Bell, Cloud, Code2, Layers, ShieldCheck, Sparkles } from "lucide-react"
 import SectionHeading from "@/components/section-heading"
 import TiltCard from "@/components/tilt-card"
+import Toolbox from "@/components/toolbox"
 import { cn } from "@/lib/utils"
 
 const ease = [0.22, 1, 0.36, 1] as const
 
-const stack = [
-  { label: "Languages", items: ["PHP", "TypeScript", "JavaScript", "Python", "Dart", "SQL", "Rust"] },
-  { label: "Frameworks", items: ["Laravel", "Vue 3 · Inertia", "Next.js · React", "CodeIgniter 4", "Django · FastAPI", "Flutter"] },
-  { label: "Cloud & DevOps", items: ["GitHub Actions", "Docker", "Linux", "cPanel / WHM", "Cloudflare", "Vercel", "Fly.io", "Render"] },
-  { label: "Data & realtime", items: ["MySQL", "PostgreSQL", "Redis", "MongoDB", "Firebase", "Laravel Reverb"] },
-  { label: "AI & integrations", items: ["Claude API", "OpenAI · Azure", "Stripe Connect", "Paystack", "WhatsApp Cloud", "Microsoft Graph"] },
-]
 
 export default function Capabilities() {
   return (
@@ -53,18 +47,7 @@ export default function Capabilities() {
           </Cell>
         </div>
 
-        <div className="mt-16 grid gap-8 border-t border-border/70 pt-12 sm:grid-cols-2 lg:grid-cols-5">
-          {stack.map((g) => (
-            <div key={g.label}>
-              <div className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">{g.label}</div>
-              <ul className="mt-3 space-y-1.5">
-                {g.items.map((it) => (
-                  <li key={it} className="text-[15px]">{it}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <Toolbox />
       </div>
     </section>
   )
@@ -121,7 +104,7 @@ function TypingClip() {
     { w: "72%", c: "bg-foreground/25", d: "0.3s", i: 1 },
     { w: "44%", c: "bg-accent/70", d: "0.6s", i: 2 },
     { w: "66%", c: "bg-foreground/25", d: "0.9s", i: 2 },
-    { w: "38%", c: "bg-fuchsia-500/60", d: "1.2s", i: 1 },
+    { w: "38%", c: "bg-orange-500/60", d: "1.2s", i: 1 },
     { w: "52%", c: "bg-foreground/25", d: "1.5s", i: 0 },
   ]
   return (
@@ -182,7 +165,7 @@ function TenantClip() {
       </div>
       <div className="relative mx-auto h-16 w-full max-w-[220px]">
         {[
-          ["clip-tenant-a", "bg-violet-500"],
+          ["clip-tenant-a", "bg-orange-500"],
           ["clip-tenant-b", "bg-emerald-500"],
         ].map(([cls, c]) => (
           <div key={cls} className={`${cls} absolute inset-0 flex gap-2 rounded-xl border border-border/70 bg-background/80 p-3`}>
@@ -203,10 +186,10 @@ function AiClip() {
   return (
     <div className="flex h-full min-h-[150px] flex-col justify-center gap-3 rounded-xl border border-border/70 bg-background/80 p-4">
       <div className="flex items-center gap-2 text-xs text-muted-foreground">
-        <Sparkles size={13} className="text-fuchsia-500" /> Synthesising 142 responses…
+        <Sparkles size={13} className="text-orange-500" /> Synthesising 142 responses…
       </div>
       <div className="h-1.5 overflow-hidden rounded-full bg-foreground/10">
-        <div className="clip-fill h-full rounded-full bg-gradient-to-r from-primary via-fuchsia-500 to-accent" />
+        <div className="clip-fill h-full rounded-full bg-gradient-to-r from-primary to-accent" />
       </div>
       <div className="flex h-10 items-end gap-1">
         {Array.from({ length: 18 }, (_, i) => (

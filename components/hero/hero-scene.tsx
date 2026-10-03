@@ -283,7 +283,7 @@ function Laptop({
       </group>
       <ScreenProjector anchor={anchor} overlay={overlay} visibility={visibility} />
 
-      <ContactShadows position={[0, -0.01, 0]} opacity={0.55} scale={9} blur={2.6} far={3} resolution={512} color="#1b1340" />
+      <ContactShadows position={[0, -0.01, 0]} opacity={0.55} scale={9} blur={2.6} far={3} resolution={512} color="#1a1410" />
     </group>
   )
 }
@@ -332,7 +332,7 @@ function GlassCard() {
     <Float speed={1.1} rotationIntensity={0.2} floatIntensity={0.6}>
       <group ref={ref} position={[-1.35, 0.15, 1.4]} rotation={[0, 0.35, 0]} scale={0.0001}>
         <RoundedBox args={[1.7, 0.66, 0.1]} radius={0.08} smoothness={4}>
-          <meshPhysicalMaterial transmission={0.55} thickness={0.6} roughness={0.3} ior={1.4} color="#1a1633" clearcoat={1} attenuationColor="#6d5dfc" attenuationDistance={1.5} />
+          <meshPhysicalMaterial transmission={0.55} thickness={0.6} roughness={0.3} ior={1.4} color="#1c1916" clearcoat={1} attenuationColor="#ff6a1a" attenuationDistance={1.5} />
         </RoundedBox>
         <mesh position={[0, 0, 0.056]}>
           <planeGeometry args={[1.56, 0.585]} />
@@ -379,22 +379,22 @@ export default function HeroScene({
       <PerformanceMonitor onDecline={() => setDpr(1)} />
       <ambientLight intensity={0.35} />
       <directionalLight position={[3, 6, 4]} intensity={1.3} />
-      <pointLight position={[-4.5, 2.5, -2]} intensity={40} color="#8b5cf6" />
-      <pointLight position={[4.5, 1.5, -2.5]} intensity={34} color="#22d3ee" />
+      <pointLight position={[-4.5, 2.5, -2]} intensity={40} color="#ff6a1a" />
+      <pointLight position={[4.5, 1.5, -2.5]} intensity={34} color="#ffb25c" />
       <Environment resolution={256}>
         <Lightformer intensity={2.2} position={[0, 5, -3]} scale={[10, 3, 1]} />
-        <Lightformer intensity={1.4} position={[-6, 2, 2]} rotation-y={Math.PI / 2} scale={[8, 2, 1]} color="#a78bfa" />
-        <Lightformer intensity={1.2} position={[6, 1, 2]} rotation-y={-Math.PI / 2} scale={[8, 2, 1]} color="#67e8f9" />
+        <Lightformer intensity={1.4} position={[-6, 2, 2]} rotation-y={Math.PI / 2} scale={[8, 2, 1]} color="#ffc9a3" />
+        <Lightformer intensity={1.2} position={[6, 1, 2]} rotation-y={-Math.PI / 2} scale={[8, 2, 1]} color="#ffffff" />
       </Environment>
 
       <Laptop progress={progress} overlay={overlay} />
-      <Tile position={[-2.2, 2.5, -1.4]} draw={drawCloud} color="#7c3aed" delay={1.4} />
-      <Tile position={[2.25, 2.75, -1.6]} draw={drawShield} color="#0891b2" delay={1.55} />
-      <Tile position={[2.45, 0.95, -0.9]} draw={drawDb} color="#4f46e5" delay={1.7} />
-      <Tile position={[0.2, 3.3, -2.4]} draw={drawCode} color="#c026d3" delay={1.85} />
-      <Tile position={[-2.5, 1.1, -0.6]} draw={drawBolt} color="#0f766e" delay={2.0} />
+      <Tile position={[-2.2, 2.5, -1.4]} draw={drawCloud} color="#2a2724" delay={1.4} />
+      <Tile position={[2.25, 2.75, -1.6]} draw={drawShield} color="#ff5a14" delay={1.55} />
+      <Tile position={[2.45, 0.95, -0.9]} draw={drawDb} color="#2a2724" delay={1.7} />
+      <Tile position={[0.2, 3.3, -2.4]} draw={drawCode} color="#2a2724" delay={1.85} />
+      <Tile position={[-2.5, 1.1, -0.6]} draw={drawBolt} color="#3a332d" delay={2.0} />
       <GlassCard />
-      <Sparkles count={46} scale={[9, 5, 4]} position={[0, 1.6, -1]} size={2.2} speed={0.35} color="#a78bfa" opacity={0.7} />
+      <Sparkles count={46} scale={[9, 5, 4]} position={[0, 1.6, -1]} size={2.2} speed={0.35} color="#ffc9a3" opacity={0.7} />
 
       <Ready onReady={onReady} />
     </Canvas>

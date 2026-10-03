@@ -69,7 +69,7 @@ function StaticFilm() {
       <div className="grid gap-4 md:grid-cols-2">
         {chapters.map((c, i) => (
           <div key={c.title} className="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
-            <div className="font-mono text-sm text-violet-300">0{i + 1} · {c.title}</div>
+            <div className="font-mono text-sm text-orange-300">0{i + 1} · {c.title}</div>
             <h3 className="mt-3 font-display text-2xl font-semibold">{c.heading}</h3>
             <p className="mt-2 text-zinc-400">{c.body}</p>
           </div>
@@ -104,8 +104,6 @@ function PinnedFilm() {
       <div className="sticky top-0 flex h-[100svh] flex-col overflow-hidden">
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(ellipse_at_65%_50%,black,transparent_70%)]" />
-          <div className="animate-orb absolute right-[10%] top-[20%] h-96 w-96 rounded-full bg-violet-600/30" />
-          <div className="animate-orb absolute bottom-[5%] left-[35%] h-80 w-80 rounded-full bg-cyan-500/20 [animation-delay:-4s]" />
         </div>
 
         <div className="container relative grid h-full grid-cols-[minmax(0,1fr)] grid-rows-[auto_1fr] gap-4 px-4 pb-6 pt-24 sm:px-6 lg:grid-cols-[minmax(0,420px)_1fr] lg:grid-rows-1 lg:items-center lg:gap-10 lg:px-8 lg:pb-0 lg:pt-0">
@@ -130,12 +128,12 @@ function Captions({ p }: { p: MotionValue<number> }) {
   return (
     <div className="relative flex gap-6">
       <div className="relative hidden w-px shrink-0 bg-white/10 sm:block">
-        <motion.div style={{ scaleY: fill }} className="absolute inset-0 origin-top bg-gradient-to-b from-violet-400 to-cyan-300" />
+        <motion.div style={{ scaleY: fill }} className="absolute inset-0 origin-top bg-gradient-to-b from-orange-400 to-amber-200" />
         {chapters.map((c, i) => (
           <span
             key={c.title}
             className={`absolute -left-[5px] h-[11px] w-[11px] rounded-full border-2 transition-all duration-500 ease-standard ${
-              i <= active ? "border-cyan-300 bg-cyan-300 shadow-[0_0_12px_rgba(103,232,249,0.9)]" : "border-white/25 bg-stage"
+              i <= active ? "border-amber-200 bg-amber-200 shadow-[0_0_12px_rgba(255,190,120,0.9)]" : "border-white/25 bg-stage"
             }`}
             style={{ top: `${(i / 3) * 100}%`, marginTop: i === 3 ? -11 : 0 }}
           />
@@ -143,10 +141,10 @@ function Captions({ p }: { p: MotionValue<number> }) {
       </div>
       <div className="flex-1">
         <div className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-400">
-          <span className="font-mono text-violet-300">03</span> — Process
+          <span className="font-mono text-orange-300">03</span> — Process
         </div>
-        <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.05] tracking-[-0.035em] sm:text-4xl lg:text-5xl">
-          From spec <span className="serif-shimmer text-[1.1em]">to shipped.</span>
+        <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-4xl lg:text-5xl">
+          From spec <span className="accent-shimmer">to shipped.</span>
         </h2>
         <div className="relative mt-6 h-[150px] sm:h-[170px] lg:mt-10 lg:h-[220px]">
           {chapters.map((c, i) => (
@@ -171,7 +169,7 @@ function Chapter({ p, i }: { p: MotionValue<number>; i: number }) {
   const Icon = c.icon
   return (
     <motion.div style={{ opacity, y, filter }} className="absolute inset-0">
-      <div className="flex items-center gap-3 font-mono text-sm text-cyan-300">
+      <div className="flex items-center gap-3 font-mono text-sm text-amber-200">
         <span className="grid h-8 w-8 place-items-center rounded-lg bg-white/[0.06]">
           <Icon size={16} />
         </span>
@@ -216,7 +214,7 @@ function SpecShot({ p }: { p: MotionValue<number> }) {
             <li key={r} className="flex items-center gap-2.5 text-[13px]">
               <span
                 className={`grid h-4 w-4 place-items-center rounded border transition-all duration-300 ${
-                  i < ticks ? "border-violet-600 bg-violet-600 text-white" : "border-zinc-400"
+                  i < ticks ? "border-orange-600 bg-orange-600 text-white" : "border-zinc-400"
                 }`}
               >
                 {i < ticks && <Check size={11} strokeWidth={3.5} />}
@@ -244,11 +242,11 @@ const code = [
   ["tx", "  }"],
   ["tx", "}"],
 ]
-const tone: Record<string, string> = { kw: "text-violet-300", fn: "text-cyan-300", st: "text-emerald-300", tx: "text-zinc-300" }
+const tone: Record<string, string> = { kw: "text-orange-300", fn: "text-amber-200", st: "text-emerald-300", tx: "text-zinc-300" }
 
 function Editor({ lines }: { lines: number }) {
   return (
-    <div className="h-full overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d16] shadow-[0_50px_120px_-30px_rgba(91,75,230,0.55)]">
+    <div className="h-full overflow-hidden rounded-2xl border border-white/10 bg-[#110f0d] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9)]">
       <div className="flex h-9 items-center gap-1.5 border-b border-white/[0.06] px-4">
         <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
@@ -258,7 +256,7 @@ function Editor({ lines }: { lines: number }) {
       <div className="flex">
         <div className="w-32 shrink-0 space-y-1.5 border-r border-white/[0.06] p-3 font-mono text-[11px] text-zinc-500">
           {["app/", "  Models/", "  Services/", "  Policies/", "resources/js/", "  Pages/", "tests/", "  Feature/"].map((f) => (
-            <div key={f} className={f.includes("Services") ? "text-cyan-300" : ""}>{f}</div>
+            <div key={f} className={f.includes("Services") ? "text-amber-200" : ""}>{f}</div>
           ))}
         </div>
         <pre className="flex-1 p-4 font-mono text-[12.5px] leading-[1.7]">
@@ -300,7 +298,7 @@ function HardenShot({ p }: { p: MotionValue<number> }) {
   const checks = ["Tenant isolation", "Authorization policies", "CSRF & signed webhooks", "Static analysis (PHPStan)", "Feature tests", "Dependency audit"]
   return (
     <motion.div style={{ opacity, rotateX, rotateY, z }} className={`${shotBase} h-[380px] w-[560px]`}>
-      <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d16] p-5 shadow-[0_50px_120px_-30px_rgba(34,211,238,0.35)]">
+      <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[#110f0d] p-5 shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9)]">
         <div className="flex items-center justify-between">
           <div>
             <div className="text-[11px] uppercase tracking-[0.16em] text-zinc-500">Security & quality gate</div>
@@ -323,8 +321,8 @@ function HardenShot({ p }: { p: MotionValue<number> }) {
           <div><span className="text-emerald-400">✓</span> webhook signature verified (HMAC-SHA512)</div>
           <div><span className="text-emerald-400">✓</span> 80 tests, 0 failures</div>
         </div>
-        <motion.div style={{ top: scan }} className="absolute inset-x-0 h-16 -translate-y-1/2 bg-gradient-to-b from-transparent via-cyan-400/20 to-transparent">
-          <div className="absolute inset-x-0 top-1/2 h-px bg-cyan-300 shadow-[0_0_16px_2px_rgba(103,232,249,0.8)]" />
+        <motion.div style={{ top: scan }} className="absolute inset-x-0 h-16 -translate-y-1/2 bg-gradient-to-b from-transparent via-amber-300/20 to-transparent">
+          <div className="absolute inset-x-0 top-1/2 h-px bg-amber-200 shadow-[0_0_16px_2px_rgba(255,190,120,0.8)]" />
         </motion.div>
         <motion.div
           style={{ scale: shield, opacity: shield }}
@@ -352,7 +350,7 @@ function ShipShot({ p }: { p: MotionValue<number> }) {
 
   return (
     <motion.div style={{ opacity, rotateX, z, y }} className={`${shotBase} h-[400px] w-[560px]`}>
-      <div className="relative h-full rounded-2xl border border-white/10 bg-gradient-to-b from-[#12121d] to-[#0b0b12] p-5 shadow-[0_60px_140px_-30px_rgba(91,75,230,0.6)]">
+      <div className="relative h-full rounded-2xl border border-white/10 bg-gradient-to-b from-[#17130f] to-[#0e0c0a] p-5 shadow-[0_60px_120px_-40px_rgba(0,0,0,0.9)]">
         <div className="flex items-center justify-between">
           <div>
             <div className="text-[11px] uppercase tracking-[0.16em] text-zinc-500">Production</div>
@@ -376,7 +374,7 @@ function ShipShot({ p }: { p: MotionValue<number> }) {
         </div>
         <div className="mt-3 flex h-[170px] items-end gap-1.5 rounded-xl border border-white/[0.07] bg-white/[0.02] p-3">
           {[28, 40, 34, 52, 46, 60, 55, 68, 62, 74, 70, 82, 78, 90, 86, 96].map((h, i) => (
-            <motion.div key={i} style={{ scaleY: bars, height: `${h}%` }} className="flex-1 origin-bottom rounded-sm bg-gradient-to-t from-violet-500/50 to-cyan-300/90" />
+            <motion.div key={i} style={{ scaleY: bars, height: `${h}%` }} className="flex-1 origin-bottom rounded-sm bg-gradient-to-t from-orange-500/50 to-amber-200/90" />
           ))}
         </div>
         <div className="mt-2 text-[10px] text-zinc-600">Illustrative data</div>

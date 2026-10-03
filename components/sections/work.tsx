@@ -85,7 +85,7 @@ export default function Work({ thumbnails }: { thumbnails: ThumbnailMap }) {
                 <div className="flex items-center gap-3">
                   <span
                     className="h-2.5 w-2.5 shrink-0 rounded-full transition-transform duration-300 group-aria-selected:scale-125"
-                    style={{ background: `hsl(${p.hue} 80% 55%)` }}
+                    style={{ background: `hsl(${p.hue} 45% 50%)` }}
                   />
                   <span className="whitespace-nowrap font-medium">{p.title}</span>
                 </div>

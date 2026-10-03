@@ -28,7 +28,7 @@ export default function OpengraphImage() {
           alignItems: "center",
           gap: 70,
           padding: "0 90px",
-          background: "linear-gradient(135deg,#0a0a12 0%,#111028 55%,#0a0a12 100%)",
+          background: "linear-gradient(135deg,#0c0a08 0%,#17120d 55%,#0c0a08 100%)",
           position: "relative",
           fontFamily: "sans-serif",
         }}
@@ -42,7 +42,7 @@ export default function OpengraphImage() {
             width: 520,
             height: 520,
             borderRadius: 9999,
-            background: "#7c3aed",
+            background: "#2a2724",
             opacity: 0.4,
             filter: "blur(120px)",
             display: "flex",
@@ -56,7 +56,7 @@ export default function OpengraphImage() {
             width: 520,
             height: 520,
             borderRadius: 9999,
-            background: "#06b6d4",
+            background: "#ffb25c",
             opacity: 0.35,
             filter: "blur(120px)",
             display: "flex",
@@ -73,8 +73,8 @@ export default function OpengraphImage() {
             height: 372,
             flexShrink: 0,
             borderRadius: 9999,
-            background: "linear-gradient(135deg,#a78bfa,#e879f9,#22d3ee)",
-            boxShadow: "0 25px 70px rgba(124,58,237,0.45)",
+            background: "linear-gradient(135deg,#ffc9a3,#ff8a3d,#ffb25c)",
+            boxShadow: "0 25px 70px rgba(255,90,20,0.45)",
           }}
         >
           <img
@@ -85,7 +85,7 @@ export default function OpengraphImage() {
               borderRadius: 9999,
               objectFit: "cover",
               background: "#ffffff",
-              border: "7px solid #0a0a12",
+              border: "7px solid #0c0a08",
             }}
           />
         </div>
@@ -137,7 +137,7 @@ export default function OpengraphImage() {
               fontWeight: 800,
               letterSpacing: "-0.03em",
               lineHeight: 1.05,
-              backgroundImage: "linear-gradient(90deg,#a78bfa,#e879f9,#22d3ee)",
+              backgroundImage: "linear-gradient(90deg,#ffc9a3,#ff8a3d,#ffb25c)",
               backgroundClip: "text",
               color: "transparent",
               display: "flex",
@@ -163,7 +163,7 @@ export default function OpengraphImage() {
               fontSize: 24,
               fontWeight: 700,
               letterSpacing: "0.04em",
-              backgroundImage: "linear-gradient(90deg,#a78bfa,#22d3ee)",
+              backgroundImage: "linear-gradient(90deg,#ffc9a3,#ffb25c)",
               backgroundClip: "text",
               color: "transparent",
               display: "flex",

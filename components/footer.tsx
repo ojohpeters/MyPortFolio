@@ -65,7 +65,7 @@ export default function Footer() {
             owners; technologies are named for identification only. Dashboards and figures inside UI illustrations are
             illustrative.
           </p>
-          <p>Credits: Inter, Inter Tight and Instrument Serif (SIL Open Font License) · globe rendered with cobe (MIT) · icons by Lucide (ISC).</p>
+          <p>Credits: Geist and Geist Mono (SIL Open Font License) · globe rendered with cobe (MIT) · icons by Lucide (ISC).</p>
         </div>
       </div>
     </footer>

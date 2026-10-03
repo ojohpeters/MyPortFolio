@@ -50,9 +50,9 @@ export default function ProjectCover({
       aria-label={`${title} cover`}
       className={cn("relative overflow-hidden", className)}
       style={{
-        background: `radial-gradient(120% 90% at 0% 0%, hsl(${hue} 85% 55% / 0.55), transparent 55%),
-          radial-gradient(90% 80% at 100% 100%, hsl(${h2} 85% 55% / 0.45), transparent 60%),
-          linear-gradient(160deg, hsl(${hue} 30% 10%), hsl(240 20% 5%))`,
+        background: `radial-gradient(120% 90% at 0% 0%, hsl(${hue} 45% 48% / 0.35), transparent 55%),
+          radial-gradient(90% 80% at 100% 100%, hsl(${h2} 35% 45% / 0.22), transparent 60%),
+          linear-gradient(160deg, hsl(${hue} 14% 11%), hsl(30 10% 5%))`,
       }}
     >
       <div
@@ -90,7 +90,7 @@ export default function ProjectCover({
                 {[0, 1, 2].map((i) => (
                   <div key={i} className="h-6 flex-1 rounded-md border border-white/10 bg-white/[0.06] p-1">
                     <div className="h-1 w-1/2 rounded-full bg-white/25" />
-                    <div className="mt-1 h-1.5 w-3/4 rounded-full" style={{ background: `hsl(${i ? h2 : hue} 90% 70% / 0.8)` }} />
+                    <div className="mt-1 h-1.5 w-3/4 rounded-full" style={{ background: `hsl(${i ? 30 : hue} 70% 62% / 0.85)` }} />
                   </div>
                 ))}
               </div>
@@ -99,7 +99,7 @@ export default function ProjectCover({
                   <div
                     key={i}
                     className="flex-1 rounded-sm"
-                    style={{ height: `${v}%`, background: `linear-gradient(to top, hsl(${hue} 90% 60% / 0.5), hsl(${h2} 90% 70% / 0.9))` }}
+                    style={{ height: `${v}%`, background: `linear-gradient(to top, hsl(${hue} 30% 45% / 0.5), hsl(20 95% 58% / 0.9))` }}
                   />
                 ))}
               </div>

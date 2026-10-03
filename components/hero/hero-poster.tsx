@@ -44,7 +44,7 @@ export default function HeroPoster() {
 
       <div className="relative w-[78%] max-w-[520px] [transform-style:preserve-3d] [transform:rotateX(10deg)_rotateY(-16deg)_rotateZ(1deg)]">
         {/* lid */}
-        <div className="rounded-[14px] bg-gradient-to-b from-zinc-700 to-zinc-900 p-[2.2%] shadow-[0_40px_80px_-30px_rgba(40,20,120,0.55)] ring-1 ring-black/40">
+        <div className="rounded-[14px] bg-gradient-to-b from-zinc-700 to-zinc-900 p-[2.2%] shadow-[0_40px_80px_-30px_rgba(60,30,10,0.55)] ring-1 ring-black/40">
           <div ref={ref} className="relative w-full overflow-hidden rounded-[8px]" style={{ aspectRatio: `${SCREEN_W} / ${SCREEN_H}` }}>
             <div className="absolute left-0 top-0 origin-top-left" style={{ transform: `scale(${scale})` }}>
               <DeployScreen />
