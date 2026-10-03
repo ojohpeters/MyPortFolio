@@ -32,10 +32,12 @@
   .contact b { font-size: 6.6pt; letter-spacing: 0.12em; color: #8e89b8; font-weight: 600; padding-top: 1px; }
   .contact a { color: #ecebfa; text-decoration: none; word-break: break-word; }
 
+  .core { margin-bottom: 11px; padding: 7px 8px; border-radius: 6px; background: rgba(169,159,251,0.1); border: 1px solid rgba(169,159,251,0.22); }
+  .core h3 { font-size: 6.6pt; letter-spacing: 0.14em; text-transform: uppercase; color: #a99ffb; font-weight: 700; margin-bottom: 3px; }
+  .core p { font-size: 8.4pt; font-weight: 600; color: #fff; line-height: 1.45; }
   .group { margin-bottom: 8px; }
-  .group h3 { font-size: 7.6pt; font-weight: 600; color: #cfcbf2; margin-bottom: 4px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 3px; }
-  .chips span { font-size: 7.2pt; padding: 1.5px 6px; border-radius: 99px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); color: #e3e1f5; }
+  .group h3 { font-size: 7.5pt; font-weight: 600; color: #fff; margin-bottom: 1.5px; }
+  .group p { font-size: 7.7pt; color: #b9b6d3; line-height: 1.45; }
 
   .edu { margin-bottom: 8px; }
   .edu .when { font-size: 6.8pt; letter-spacing: 0.1em; color: #8e89b8; font-weight: 600; }
@@ -78,19 +80,21 @@
       <div><b>LOC</b><span>Kaduna, Nigeria · Remote</span></div>
       <div><b>WEB</b><a href="https://ojohpeters.vercel.app">ojohpeters.vercel.app</a></div>
       <div><b>GIT</b><a href="https://github.com/ojohpeters">github.com/ojohpeters</a></div>
-      <div><b>IN</b><a href="https://www.linkedin.com/in/ojoh-peter-ojochegbe-79b0603b6">linkedin.com/in/ojoh-peter-ojochegbe-79b0603b6</a></div>
+      <div><b>IN</b><a href="https://www.linkedin.com/in/ojoh-peter-ojochegbe-79b0603b6">in/ojoh-peter-ojochegbe</a></div>
     </div>
 
     <h2>Skills</h2>
-    <div class="group"><h3>Languages</h3><div class="chips"><span>PHP</span><span>TypeScript</span><span>JavaScript</span><span>Python</span><span>Dart</span><span>SQL</span><span>Rust</span></div></div>
-    <div class="group"><h3>Frameworks</h3><div class="chips"><span>Laravel 12/13</span><span>Vue 3 · Inertia</span><span>Next.js · React</span><span>CodeIgniter 4</span><span>Django · FastAPI</span><span>Flutter</span><span>Tailwind CSS</span></div></div>
-    <div class="group"><h3>Cloud &amp; DevOps</h3><div class="chips"><span>GitHub Actions</span><span>Docker</span><span>Linux</span><span>cPanel / WHM</span><span>Cloudflare</span><span>Vercel</span><span>Fly.io</span><span>Render</span><span>Backups &amp; DR</span></div></div>
-    <div class="group"><h3>Data &amp; Realtime</h3><div class="chips"><span>MySQL</span><span>PostgreSQL · RLS</span><span>Redis</span><span>MongoDB</span><span>Firebase</span><span>Laravel Reverb</span><span>Web Push</span></div></div>
-    <div class="group"><h3>AI &amp; Integrations</h3><div class="chips"><span>Claude API</span><span>OpenAI · Azure OpenAI</span><span>Stripe Connect</span><span>Paystack</span><span>WhatsApp Cloud API</span><span>Microsoft Graph</span></div></div>
-    <div class="group"><h3>Security</h3><div class="chips"><span>App hardening</span><span>Incident response</span><span>DFIR</span><span>Networking</span></div></div>
+    <div class="core"><h3>Core stack</h3><p>PHP · Laravel · Vue 3 + Inertia<br />TypeScript · MySQL</p></div>
+    <div class="group"><h3>Also build with</h3><p>Next.js / React, Flutter (Dart), CodeIgniter 4, Python (Django, FastAPI), Tailwind CSS</p></div>
+    <div class="group"><h3>Cloud &amp; DevOps</h3><p>GitHub Actions CI, Docker, Linux servers, cPanel / WHM, Cloudflare, Vercel, Fly.io</p></div>
+    <div class="group"><h3>Data &amp; realtime</h3><p>PostgreSQL (Row-Level Security), Redis, MongoDB, Firebase, WebSockets (Reverb), Web Push</p></div>
+    <div class="group"><h3>AI &amp; integrations</h3><p>Claude &amp; OpenAI APIs, Azure OpenAI, Stripe Connect, Paystack, WhatsApp Cloud API, Microsoft Graph</p></div>
+    <div class="group"><h3>Engineering practice</h3><p>SRS-driven delivery, multi-tenant architecture, automated testing (PHPUnit, Pest), backups &amp; disaster recovery</p></div>
+    <div class="group"><h3>Security</h3><p>Application hardening, incident response, digital forensics (DFIR)</p></div>
 
     <h2>Education</h2>
     <div class="edu"><div class="when">2025 – PRESENT</div><div class="what">B.Eng. Electrical Engineering</div><div class="where">Air Force Institute of Technology (AFIT), Kaduna</div></div>
+    <div class="edu"><div class="when">AUG 2021 – NOV 2024</div><div class="what">Computer Science &amp; Software Engineering</div><div class="where">Global Wealth University, Togo</div></div>
     <div class="edu"><div class="when">2022 – 2023</div><div class="what">Backend Web Development</div><div class="where">SACS Computers — Certificate (PHP &amp; Laravel)</div></div>
 
     <h2>Languages</h2>
@@ -108,11 +112,9 @@
 
     <h2>Profile</h2>
     <p class="profile">
-      Senior engineer with 5+ years building web platforms, multi-tenant SaaS and AI-integrated products. At Efiko
-      Management Consulting I lead engineering on the company's B2B product portfolio — taking products from client
-      specifications to production, largely as sole developer, and owning how they are deployed, monitored, backed up
-      and secured. Comfortable across the whole stack: Laravel/Vue and Next.js on the web, Flutter on mobile, and the
-      CI/CD, hosting and security work underneath.
+      Senior engineer who takes B2B products from specification to production — and keeps them running. I lead
+      engineering on Efiko Management Consulting's product portfolio, mostly as sole developer, with 5+ years building
+      multi-tenant SaaS and AI-integrated platforms across web, mobile, CI/CD, hosting and security.
     </p>
 
     <h2>Experience</h2>
@@ -123,12 +125,12 @@
       </div>
       <div class="job-sub"><b style="color:var(--ink);font-weight:600">Efiko Management Consulting</b> · Nigeria &amp; USA · Lead engineer on the product portfolio</div>
       <ul>
-        <li>Built the company's <b>Pro suite of B2B SaaS products</b> end-to-end from SRS documents and client meetings — mostly as sole developer, on Laravel 13, Vue 3 / TypeScript (Inertia) and Tailwind.</li>
-        <li>Built <b>Efiko Daily</b> on web (Laravel 12, Reverb WebSockets, Web Push, Paystack) and as a <b>native Flutter app</b> for iOS and Android on a dedicated mobile API.</li>
-        <li>Lead developer on the <b>Efiko HRIS</b> suite (CodeIgniter 4) — performance, L&amp;D, payroll/PAYE, succession, grievance and 10+ other modules; built the Nigeria and USA corporate websites and the EfikoHub app launcher.</li>
-        <li><b>Cloud &amp; operations:</b> production deployments on cPanel/WHM behind Cloudflare, GitHub Actions CI (PHP 8.4/8.5 matrix, static analysis), realtime and push infrastructure (Reverb, Web Push, Firebase), encrypted off-server backups with retention and DR documentation, and a server-wide domain inventory tool.</li>
-        <li><b>Security:</b> hardening and incident response across company platforms — access-control and API-token fixes, CSRF, MFA/passkeys and tamper-evident audit logs.</li>
-        <li>Shipped <b>AI features on the Claude API</b>: qualitative-feedback synthesis and an agent that drafts daily headline summaries for human approval.</li>
+        <li>Shipped <b>8 B2B products</b> from client SRS to production, most as sole developer — including TrainerPro's full <b>16-module specification</b> and SalesPro with <b>115 automated tests</b>.</li>
+        <li>Built <b>Efiko Daily</b> end-to-end: web platform with realtime WebSockets, Web Push and Paystack subscriptions, plus a <b>native Flutter app</b> for iOS and Android on a dedicated mobile API.</li>
+        <li>Lead developer on the <b>Efiko HRIS</b> suite (CodeIgniter 4) — performance, L&amp;D, payroll/PAYE, succession and 10+ other modules; built the EfikoHub app launcher.</li>
+        <li><b>Own production operations:</b> deployments behind Cloudflare, GitHub Actions CI with static analysis across the product line, push infrastructure, and encrypted off-server backups with a documented recovery plan.</li>
+        <li><b>Hardened platforms and led incident response:</b> per-tenant access control, signed webhooks, MFA/passkeys and tamper-evident audit logs.</li>
+        <li>Delivered <b>AI features on the Claude API</b> with human review built in: feedback-theme synthesis and daily headline drafting.</li>
       </ul>
       <div class="products">
         <div class="product"><b>Efiko Daily</b><p>Team accountability SaaS + Flutter app: rollover engine, live stand-ups, reports, subscriptions.</p></div>
